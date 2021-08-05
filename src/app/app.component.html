@@ -1,6 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
-  <ion-tabs>
+  <ion-tabs *ngIf="accountService.currentUser$ | async">
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="schedule">
         <ion-icon name="calendar"></ion-icon>

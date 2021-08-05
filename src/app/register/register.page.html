@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+<ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label position="stacked">Ime</ion-label>
+        <ion-input [(ngModel)]="user.name"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label position="stacked">Prezime</ion-label>
+        <ion-input [(ngModel)]="user.surname"></ion-input>
+      </ion-item>
+
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="user.userEmail"></ion-input>
+      </ion-item>
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Korisnicko ime</ion-label>
+          <ion-input [(ngModel)]="user.username"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Telefon</ion-label>
+          <ion-input [(ngModel)]="user.cellphoneNumber"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Lozinka</ion-label>
+          <ion-input [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Provera lozinke</ion-label>
+          <ion-input ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-item>
+    <ion-button color="success" (click)="register()" >Uloguj se</ion-button>
+<ion-button color="dark" (click)="logout()">LogOut</ion-button>
+  </div>
+</ion-content>
+
+
