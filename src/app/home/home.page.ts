@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { restaurant } from '../_models/restaurants';
+import { LoginService } from '../_services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  res:restaurant;
+
+  constructor(private router:Router,private ls:LoginService) {}
+
+  goTo(){
+    console.log('klik');
+    this.ls.pozoviApi().subs()
+  }
+
 
 }
