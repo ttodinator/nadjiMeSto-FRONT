@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule,ReactiveFormsModule,FormBuilder } from '@angular/forms';
 
+
 @NgModule({
   declarations: [AppComponent,NavComponent],
   entryComponents: [],

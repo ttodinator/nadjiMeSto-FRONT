@@ -1,3 +1,7 @@
 export interface restaurant{
-    ime:string
+    id:number,
+    name:string,
+    adress:string,
+    phoneNumber:string
+
 }

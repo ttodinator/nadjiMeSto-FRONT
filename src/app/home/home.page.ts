@@ -45,7 +45,7 @@ export class HomePage implements OnInit{
   goTo(){
     //console.log(this.loginForm.valid);
     this.accountService.login(this.loginForm.value).subscribe(response=>{
-      this.router.navigateByUrl('/register');
+      this.router.navigateByUrl('/restaurants');
     })
   }
 

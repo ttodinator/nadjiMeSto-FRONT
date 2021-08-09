@@ -28,12 +28,12 @@
     <ion-row>
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
-        <ion-input formControlName='email'></ion-input>
+        <ion-input formControlName='userEmail'></ion-input>
       </ion-item>
 
     </ion-row>
     <ion-row>
-      <div class="inputDiv" *ngIf="registerForm.get('email').hasError('required') " >Morate da unesete ime</div>
+      <div class="inputDiv" *ngIf="registerForm.get('userEmail').hasError('required') " >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -48,10 +48,10 @@
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Telefon</ion-label>
-          <ion-input formControlName='cellPhoneNumber'></ion-input>
+          <ion-input formControlName='cellphoneNumber'></ion-input>
         </ion-item>
         <ion-row>
-          <div class="inputDiv" *ngIf="registerForm.get('cellPhoneNumber').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('cellphoneNumber').hasError('required') " >Morate da unesete ime</div>
         </ion-row>
       </ion-col>
     </ion-row>
@@ -67,14 +67,14 @@
         </ion-row>
       </ion-col>
       <ion-col>
-        <ion-item>
+        <!-- <ion-item>
           <ion-label position="stacked">Provera lozinke</ion-label>
           <ion-input formControlName='passwordCheck'></ion-input>
-        </ion-item>
-        <ion-row>
+        </ion-item> -->
+        <!-- <ion-row>
           <div class="inputDiv" *ngIf="registerForm.get('passwordCheck').hasError('required') " >Morate da unesete ime</div>
           <div class="inputDiv" *ngIf="registerForm.get('passwordCheck').hasError('minlength') " >Mora 6</div>
-        </ion-row>
+        </ion-row> -->
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -51,11 +51,11 @@ export class RegisterPage implements OnInit {
     this.registerForm=new FormGroup({
       username:new FormControl('',Validators.required),
       password:new FormControl('',[Validators.required,Validators.minLength(6)]),
-      email: new FormControl('',[Validators.required,Validators.email]),
+      userEmail: new FormControl('',[Validators.required]),
       name: new FormControl('',Validators.required),
       surname: new FormControl('',Validators.required),
-      cellPhoneNumber:new FormControl('',Validators.required),
-      passwordCheck:new FormControl('',[Validators.required,Validators.minLength(6)]),
+      cellphoneNumber:new FormControl('',Validators.required),
+      // passwordCheck:new FormControl('',[Validators.required,Validators.minLength(6)]),
     })
   }
 

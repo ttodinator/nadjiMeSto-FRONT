@@ -31,7 +31,9 @@
         <div class="inputDiv" *ngIf="loginForm.get('password').hasError('minlength') " >Lozinka mora biti duza od 6 karaktera</div>
     
       </ion-row>
-      <ion-button [disabled]='!loginForm.valid' type="submit" color="success">Success</ion-button>
+      <ion-button [disabled]='!loginForm.valid' type="submit" color="success">Prijavi se</ion-button>
+      <ion-button routerLink="/register" color="dark">Registruj se</ion-button>
+
     </ion-grid>
     </form>
   </div>
