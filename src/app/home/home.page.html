@@ -1,18 +1,40 @@
+<ion-router-outlet></ion-router-outlet>
 <ion-header [translucent]="true">
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-     <ion-item>
-      <ion-label position="stacked">Korisnicko ime: </ion-label>
-      <ion-input ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Lozinka:</ion-label>
-      <ion-input  ></ion-input>
-    </ion-item>
-    <ion-button color="success" (click)="goTo()">Uloguj se</ion-button>
-    <ion-button color="dark" routerLink='/register' >Registruj se</ion-button>
+  <div  id="container" >
+    <form [formGroup]='loginForm' (ngSubmit)="goTo()">
+      <ion-grid>
+        <ion-row>
+          <ion-item>
+            <ion-label position="stacked">Korisniko ime:</ion-label>
+            <ion-input 
+              formControlName='username' >
 
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <div class="inputDiv" *ngIf="loginForm.get('username').hasError('required') " >Morate da unesete korisnicko ime</div>
+        </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label position="stacked">Lozinka:</ion-label>
+          <ion-input formControlName='password'></ion-input>
+        </ion-item>
+
+      </ion-row>
+      <ion-row>
+        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('required') " >Morate da unesete lozinku</div>
+        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('minlength') " >Lozinka mora biti duza od 6 karaktera</div>
+    
+      </ion-row>
+      <ion-button [disabled]='!loginForm.valid' type="submit" color="success">Success</ion-button>
+    </ion-grid>
+    </form>
   </div>
+
 </ion-content>
+
+

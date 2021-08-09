@@ -36,8 +36,8 @@ export class RegisterPage implements OnInit {
 
   }
   logout(){
-    this.router.navigateByUrl('/home');
-
     this.accountService.logout();
+    this.router.navigateByUrl('');
+    //this.router.navigateByUrl('/restaurants');
   }
 }

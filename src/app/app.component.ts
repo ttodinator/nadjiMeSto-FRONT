@@ -10,12 +10,6 @@ import { AccountService } from './_services/account.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(public accountService:AccountService) {}
-
-  currentUser$:Observable<User>;
-
-
-  ngOnInit(): void {
-    this.accountService.doNothing();
-  }
+  constructor() {}
+  ngOnInit(){}
 }

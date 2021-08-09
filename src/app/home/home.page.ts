@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { restaurant } from '../_models/restaurants';
 import { User } from '../_models/user';
@@ -9,7 +10,9 @@ import { AccountService } from '../_services/account.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
+
+  loginForm:FormGroup;
 
   user:User={
     name:'',
@@ -23,12 +26,25 @@ export class HomePage {
     dateOfBirth:new Date
   };
 
-  constructor(private router:Router,private accountService:AccountService) {}
+  constructor(private router:Router,private accountService:AccountService) {
+
+  }
+  
+  ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm(){
+    this.loginForm=new FormGroup({
+      username:new FormControl('',Validators.required),
+      password:new FormControl('',[Validators.required,Validators.minLength(6)])
+    })
+  }
+
 
   goTo(){
-    //console.log(this.user);
-    this.accountService.login(this.user).subscribe(response=>{
-      console.log(response);
+    //console.log(this.loginForm.valid);
+    this.accountService.login(this.loginForm.value).subscribe(response=>{
       this.router.navigateByUrl('/register');
     })
   }
