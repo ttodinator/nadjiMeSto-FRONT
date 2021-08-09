@@ -3,61 +3,86 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
+    <form [formGroup]='registerForm' (ngSubmit)="register()" >
 <ion-item>
   <ion-grid>
     <ion-row>
       <ion-item>
         <ion-label position="stacked">Ime</ion-label>
-        <ion-input [(ngModel)]="user.name"></ion-input>
+        <ion-input formControlName='name'></ion-input>
       </ion-item>
+    </ion-row>
+    <ion-row>
+      <div class="inputDiv" *ngIf="registerForm.get('name').hasError('required') " >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-item>
         <ion-label position="stacked">Prezime</ion-label>
-        <ion-input [(ngModel)]="user.surname"></ion-input>
+        <ion-input formControlName='surname'></ion-input>
       </ion-item>
 
     </ion-row>
     <ion-row>
+      <div class="inputDiv" *ngIf="registerForm.get('surname').hasError('required') " >Morate da unesete ime</div>
+    </ion-row>
+    <ion-row>
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
-        <ion-input [(ngModel)]="user.userEmail"></ion-input>
+        <ion-input formControlName='email'></ion-input>
       </ion-item>
 
+    </ion-row>
+    <ion-row>
+      <div class="inputDiv" *ngIf="registerForm.get('email').hasError('required') " >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Korisnicko ime</ion-label>
-          <ion-input [(ngModel)]="user.username"></ion-input>
+          <ion-input formControlName='username'></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="registerForm.get('username').hasError('required') " >Morate da unesete ime</div>
+        </ion-row>
       </ion-col>
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Telefon</ion-label>
-          <ion-input [(ngModel)]="user.cellphoneNumber"></ion-input>
+          <ion-input formControlName='cellPhoneNumber'></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="registerForm.get('cellPhoneNumber').hasError('required') " >Morate da unesete ime</div>
+        </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Lozinka</ion-label>
-          <ion-input [(ngModel)]="user.password"></ion-input>
+          <ion-input formControlName='password'></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('minlength') " >Mora 6</div>
+        </ion-row>
       </ion-col>
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Provera lozinke</ion-label>
-          <ion-input ></ion-input>
+          <ion-input formControlName='passwordCheck'></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="registerForm.get('passwordCheck').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('passwordCheck').hasError('minlength') " >Mora 6</div>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
 
 </ion-item>
-    <ion-button color="success" (click)="register()" >Uloguj se</ion-button>
+    <ion-button color="success" type="submit" >Uloguj se</ion-button>
 <ion-button color="dark" (click)="logout()">LogOut</ion-button>
+</form>
   </div>
 </ion-content>
 
