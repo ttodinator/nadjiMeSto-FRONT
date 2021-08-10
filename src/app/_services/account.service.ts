@@ -28,6 +28,10 @@ export class AccountService {
     )
   }
 
+  returnCurrent(){
+    
+  }
+
   // login(model:User){
   //   //console.log(model);
   //   // return this.http.post('https://localhost:44387/api/account/login',model).subscribe(response=>{

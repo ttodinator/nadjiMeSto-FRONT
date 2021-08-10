@@ -32,7 +32,27 @@
   color: red;
 
 }
+ion-input{
+  --background:transparent !important;
+}
 
 ion-button{
   margin-top: 50px;
+}
+// .bg-image{
+//   background-image: url('../../assets/pozadina.jpg');
+//   background-position: cover;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-color: transparent;
+
+// }
+
+.background-image{
+  --background:url(../../assets/pozadinaIspravljena-80.jpg) 0 0/100% 100%  no-repeat;
+  
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
 }

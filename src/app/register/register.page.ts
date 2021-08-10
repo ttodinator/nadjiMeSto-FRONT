@@ -37,6 +37,8 @@ export class RegisterPage implements OnInit {
   register(){
   this.accountService.register(this.registerForm.value).subscribe(response=>{
     console.log(response);
+    this.router.navigateByUrl('/restaurants');
+
 
  })
  console.log(this.registerForm.value)

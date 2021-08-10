@@ -1,22 +1,22 @@
 <ion-tabs >
   <ion-tab-bar slot="bottom" *ngIf="acc.currentUser$ | async">
-    <ion-tab-button tab="schedule" routerLink="/restaurants">
-      <ion-icon name="calendar"></ion-icon>
-      <ion-label>Schedule</ion-label>
+    <ion-tab-button tab="restaurants">
+      <ion-icon name="restaurant-outline"></ion-icon>
+      <ion-label>Restorani</ion-label>
       <ion-badge>6</ion-badge>
     </ion-tab-button>
 
-    <ion-tab-button tab="speakers">
+    <ion-tab-button tab="profile">
       <ion-icon name="person-circle"></ion-icon>
-      <ion-label>Speakers</ion-label>
+      <ion-label>Profil</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="map">
-      <ion-icon name="map"></ion-icon>
-      <ion-label>Map</ion-label>
+    <ion-tab-button tab="map" routerLink="/profile">
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>Rezervacije</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="about">
+    <ion-tab-button tab="about" routerLink="/profile">
       <ion-icon name="information-circle"></ion-icon>
       <ion-label>About</ion-label>
     </ion-tab-button>
