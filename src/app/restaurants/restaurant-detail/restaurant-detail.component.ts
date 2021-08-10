@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { restaurant } from 'src/app/_models/restaurants';
 
@@ -10,10 +11,15 @@ import { restaurant } from 'src/app/_models/restaurants';
 })
 export class RestaurantDetailComponent implements OnInit {
 
-  @Input() restaurant:restaurant;
+  restaurant:restaurant;
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.data.subscribe(data=>{
+      console.log(data);
+      this.restaurant=data.restaurant;
+    })
+  }
 
 }

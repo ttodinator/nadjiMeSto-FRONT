@@ -1,5 +1,11 @@
-<div *ngFor="let res of restaurants">
+<ion-searchbar showCancelButton="never" (keyup)="search($event)" ></ion-searchbar>
+
+<div *ngFor="let res of restaurantsInit">
   <p>
-    <app-restaurant-detail [restaurant]="res"></app-restaurant-detail>
+    <app-restaurant-card [restaurant]="res"></app-restaurant-card>
   </p>
+</div>
+
+<div *ngIf="restaurantsInit.length<1">
+<p>Nema restorana sa zadatim kriterijumom</p>
 </div>

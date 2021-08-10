@@ -17,5 +17,9 @@ export class RestaurantService {
   getAllRestaurants(){
     return this.http.get<restaurant[]>(this.baseUrl+'restaurant');
   }
+
+  getRestaurant(name:string){
+    return this.http.get<restaurant>(this.baseUrl+'restaurant/'+name);
+  }
   
 }

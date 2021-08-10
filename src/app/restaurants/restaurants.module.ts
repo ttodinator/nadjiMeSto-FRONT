@@ -9,6 +9,7 @@ import { RestaurantsPageRoutingModule } from './restaurants-routing.module';
 import { RestaurantsPage } from './restaurants.page';
 import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
     RestaurantsPageRoutingModule,
   ],
   exports:[RestaurantsListComponent],
-  declarations: [RestaurantsPage,RestaurantsListComponent,RestaurantDetailComponent]
+  declarations: [RestaurantsPage,RestaurantsListComponent,RestaurantDetailComponent,RestaurantCardComponent]
 })
 export class RestaurantsPageModule {}

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RestaurantDetailComponent } from './restaurants/restaurant-detail/restaurant-detail.component';
+import { RestaurantResolverService } from './_services/restaurant-resolver.service';
 
 const routes: Routes = [
   {
@@ -18,10 +20,16 @@ const routes: Routes = [
   {
     path: 'restaurants',
     loadChildren: () => import('./restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
-  },  {
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path:'restaurants/:restaurant',
+    component:RestaurantDetailComponent,
+    resolve:{restaurant:RestaurantResolverService}
+  }
 
 ];
 
