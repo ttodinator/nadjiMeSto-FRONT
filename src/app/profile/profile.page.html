@@ -1,14 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Profil korisnika {{user.username}} </ion-title>
+  <ion-buttons>
+    <ion-button fill="solid" shape="round" color="light" routerLink="/restaurants">
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  
+    <ion-title>Profil korisnika  </ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="restaurants">
       </ion-back-button>
     </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
   
+</ion-header>
+<img src="assets/profil.png"/>
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{user.username}} </ion-title>
+    </ion-toolbar>
+    
+      
+     
+    
+  </ion-header>
+
+  <section>
+    <header></header>
+    <ion-button expand="block" (click)="logout()">Izloguj se</ion-button>
+  </section>
 
 </ion-content>
