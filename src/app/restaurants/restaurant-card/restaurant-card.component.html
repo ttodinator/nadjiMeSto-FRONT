@@ -1,5 +1,5 @@
 <ion-card >
-  <img src="assets/slika1.jpg" (click)="kl()" />
+  <img src="assets/slika1.jpg" (click)="kl()" (dblclick)="kk" />
   <ion-card-header>
     <ion-card-subtitle>Destination</ion-card-subtitle>
     <ion-card-title>{{restaurant.name}}</ion-card-title>
@@ -7,6 +7,6 @@
   <ion-card-content>
     Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
   </ion-card-content>
-  <ion-button routerLink="./{{restaurant.name}}"></ion-button>
-  <ion-icon name="heart-outline" (click)="kl()"></ion-icon>
+  <ion-icon name="heart" *ngIf="isLiked==true" (click)="likeRestaurant()"></ion-icon>
+  <ion-icon name="heart-outline" *ngIf="isLiked==false" (click)="likeRestaurant()" ></ion-icon>
 </ion-card>

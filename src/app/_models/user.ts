@@ -1,5 +1,6 @@
 export interface User {
     username:string,
+    likes:number[],
     token:string,
     name:string,
     surname:string,
@@ -8,8 +9,5 @@ export interface User {
     userEmail:string,
     password:string,
     roles:string[],
-
-
-
 
 }

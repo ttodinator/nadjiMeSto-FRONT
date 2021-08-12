@@ -21,19 +21,6 @@ export class RegisterPage implements OnInit {
   }
 
 
-  user:User = {
-    username: '',
-    name: '',
-    roles:[],
-    cellphoneNumber:'',
-    dateOfBirth:new Date,
-    password:'',
-    surname:'',
-    userEmail:'',
-    token:''
-
-
-  };
   register(){
   this.accountService.register(this.registerForm.value).subscribe(response=>{
     console.log(response);

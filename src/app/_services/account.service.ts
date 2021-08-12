@@ -94,11 +94,11 @@ export class AccountService {
     this.currentUserSource.next(user);
   }
 
-  // updateLikes(user:User){
-  //   //console.table(user);
-  //   localStorage.setItem('user',JSON.stringify(user));
-  //   this.currentUserSource.next(user);
-  // }
+  updateUser(user:User){
+    //console.table(user);
+    localStorage.setItem('user',JSON.stringify(user));
+    this.currentUserSource.next(user);
+  }
 
 
 

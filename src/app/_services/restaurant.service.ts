@@ -21,5 +21,14 @@ export class RestaurantService {
   getRestaurant(name:string){
     return this.http.get<restaurant>(this.baseUrl+'restaurant/'+name);
   }
+
+  likeRestaurant(id:number){
+    //this.toastr.success('Destination added to liked list')
+    return this.http.post(this.baseUrl+'user/like/'+id.toString(),{})
+  }
+  unlikeRestaurant(id:number){
+    //this.toastr.error('Destination removed from liked list')
+    return this.http.delete(this.baseUrl+'user/unlike/'+id.toString(),{})
+  }
   
 }

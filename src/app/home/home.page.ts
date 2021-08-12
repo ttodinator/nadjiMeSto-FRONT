@@ -14,17 +14,6 @@ export class HomePage implements OnInit{
 
   loginForm:FormGroup;
 
-  user:User={
-    name:'',
-    username:'nadja',
-    password:'P@$$w0rd',
-    token:'',
-    roles:[],
-    surname:'',
-    cellphoneNumber: '',
-    userEmail:'',
-    dateOfBirth:new Date
-  };
 
   constructor(private router:Router,private accountService:AccountService) {
 

@@ -28,11 +28,11 @@ export class RestaurantsListComponent implements OnInit {
     if(event.key=='Backspace'){
       this.restaurantsInit=this.restaurants
       this.searchCriteria= this.searchCriteria.substring(0, this.searchCriteria.length-1);
-      console.log(this.searchCriteria);
+      //console.log(this.searchCriteria);
       this.restaurantsInit=this.restaurantsInit.filter(word=>word.name.startsWith(this.searchCriteria));
     }else{
       this.searchCriteria=this.searchCriteria+event.key;
-      console.log(this.searchCriteria);
+      //console.log(this.searchCriteria);
     }
 
     if(this.searchCriteria.length<1){
