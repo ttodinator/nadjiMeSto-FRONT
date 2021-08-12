@@ -4,24 +4,33 @@
     <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
+
   
-    <ion-title>Profil korisnika  </ion-title>
+    >
     <ion-buttons slot="start">
       <ion-back-button defaultHref="restaurants">
       </ion-back-button>
     </ion-buttons>
   
 </ion-header>
-<img src="assets/profil.png"/>
+
+
 <ion-content>
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{user.username}} </ion-title>
-    </ion-toolbar>
-    
+    <ion-card>
+      <img src="assets/profil.png"/>
+      <ion-card-header>
+        <ion-card-subtitle>Profil korisnika:</ion-card-subtitle>
+        <ion-card-title>{{user.username}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Nesto o korisniku bla bla truc
+      </ion-card-content>
       
-     
+      
+    </ion-card>
     
+  
   </ion-header>
 
   <section>
