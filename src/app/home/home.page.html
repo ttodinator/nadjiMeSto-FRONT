@@ -3,6 +3,8 @@
 </ion-header>
 <ion-content class="background-image" [fullscreen]="true">
   <div id="container">
+    <ion-card>
+      <ion-card-subtitle> Prijavi se/Registruj se ako nemas nalog</ion-card-subtitle>
     <form [formGroup]='loginForm' (ngSubmit)="goTo()">
  
 
@@ -31,6 +33,7 @@
       <ion-button routerLink="/register" color="dark">Registruj se</ion-button>
 
     </form>
+  </ion-card>
   </div>
 </ion-content>
 
