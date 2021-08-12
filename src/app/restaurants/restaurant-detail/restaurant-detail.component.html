@@ -21,9 +21,15 @@
 
 
 <ion-content>
-  <div class="background-image" >
+  <!-- <div class="background-image" >
     
-  </div>
+  </div> -->
+  <ion-slides [options]="imgSlide">
+    <ion-slide *ngFor="let image of imagesList">
+     <img src="{{image}}">
+  
+    </ion-slide>
+  </ion-slides>
   <ion-header collapse="condense" class="ion-no-border">
 
     <ion-toolbar>
