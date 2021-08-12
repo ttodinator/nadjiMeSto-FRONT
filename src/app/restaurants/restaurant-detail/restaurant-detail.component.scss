@@ -1,0 +1,27 @@
+.background-image{
+    background-image:url(/../../assets/slika1.jpg) ;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    will-change: transform;
+    
+  }
+//   .logo{
+//     background-image:url(/../../assets/nadjiMeStoLOGO.png) ;
+    
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size:10;
+    
+//     will-change: transform;
+    
+//   }
+// .new-back{
+//     background-color:gray;
+// }
+ion-content{
+    position:absolute;
+    --padding-bottom:50px;
+}
