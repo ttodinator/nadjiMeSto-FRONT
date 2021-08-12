@@ -1,9 +1,7 @@
 <ion-searchbar showCancelButton="never" (keyup)="search($event)" ></ion-searchbar>
 
 <div *ngFor="let res of restaurantsInit">
-  <p>
-    <app-restaurant-card [restaurant]="res"></app-restaurant-card>
-  </p>
+    <app-restaurant-card [restaurant]="res" [ngStyle]="{display: display}" ></app-restaurant-card >
 </div>
 
 <div *ngIf="restaurantsInit.length<1">
