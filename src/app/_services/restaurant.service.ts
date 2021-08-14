@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { restaurant } from '../_models/restaurants';
 import { environment } from 'src/environments/environment';
+import { Reservation } from '../_models/reservation';
 
 
 @Injectable({
@@ -23,7 +24,18 @@ export class RestaurantService {
   }
 
   getTables(model:number){
-    return this.http.get<restaurant>(this.baseUrl+'restaurant/filter/'+model);
+    return this.http.get<number[]>(this.baseUrl+'restaurant/filter/'+model);
+  }
+
+  reserve(model:any){
+    return this.http.post<Reservation>(this.baseUrl+'reservation',model);
+  }
+
+  getCountedTables(restaurant:number,seating:number){
+    let a:any;
+    a.restaurantId=restaurant;
+    a.seating=seating;
+    return this.http.get<number>(this.baseUrl+'restaurant/count-tables',a);
   }
 
   likeRestaurant(id:number){

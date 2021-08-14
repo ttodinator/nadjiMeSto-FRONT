@@ -1,4 +1,5 @@
 export interface User {
+    id:number,
     username:string,
     likes:number[],
     token:string,

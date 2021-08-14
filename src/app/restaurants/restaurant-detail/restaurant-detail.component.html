@@ -1,23 +1,20 @@
+<ion-header class="new-back">
 
 
-
-  <ion-header class="new-back">
-   
-   
-       <!-- <ion-title>
+  <!-- <ion-title>
         <img alt="logo" height="40"   src="assets/nadjiMeStoLOGO.png" > 
        </ion-title> -->
-       
-     
-    
-    <ion-buttons>
-      <ion-button fill="solid" shape="round" color="light" routerLink="/restaurants">
+
+
+
+  <ion-buttons>
+    <ion-button fill="solid" shape="round" color="light" routerLink="/restaurants">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    
-    
-  </ion-header>
+    </ion-button>
+  </ion-buttons>
+
+
+</ion-header>
 
 
 <ion-content>
@@ -26,37 +23,62 @@
   </div> -->
   <ion-slides [options]="imgSlide">
     <ion-slide *ngFor="let image of imagesList">
-     <img src="{{image}}">
-  
+      <img src="{{image}}">
+
     </ion-slide>
   </ion-slides>
-  <ion-header  class="ion-no-border">
+  <ion-header class="ion-no-border">
 
     <!-- <ion-toolbar>
       <ion-title size="large">{{restaurant.name}}</ion-title>
 
     </ion-toolbar> -->
   </ion-header>
-  
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Restoran</ion-card-subtitle>
-      
-        <ion-card-title size="large">{{restaurant.name}}</ion-card-title></ion-card-header>
-     <ion-card-content>
-    <ion-row>
-      <ion-col size="12" >
-        <ion-icon name="location-outline"></ion-icon>
-        <ion-text color="medium">{{restaurant.adress}}</ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12" >
-        <ion-icon name="call-outline"></ion-icon>
-        <ion-text color="medium">{{restaurant.phoneNumber}}</ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-card-content> 
-  </ion-card>
-  
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Restoran</ion-card-subtitle>
+
+      <ion-card-title size="large">{{restaurant.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-icon name="location-outline"></ion-icon>
+          <ion-text color="medium">{{restaurant.adress}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-icon name="call-outline"></ion-icon>
+          <ion-text color="medium">{{restaurant.phoneNumber}}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="openReservation()" >Rezervisi</ion-button>
+  <ion-card class="reservation" [ngStyle]="{'display': displayStyle}">
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Broj osoba <ion-icon name="person-outline"></ion-icon></ion-label>
+        <ion-select [(ngModel)]="seating" multiple="false">
+          <ion-select-option *ngFor="let item of seatingList" [value]="item">{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Izaberite datum</ion-label>
+        <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" min="1994-02-14" max="2012-12-09"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Doba dana: <ion-icon name="person-outline"></ion-icon></ion-label>
+        <ion-select [(ngModel)]="timeOfTheDay" multiple="false">
+          <ion-select-option  [value]="'morning'">Jutro</ion-select-option>
+          <ion-select-option  [value]="'noon'">Popodne</ion-select-option>
+          <ion-select-option  [value]="'afternoon'">Noc</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="reserve()">Rezervisi</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
