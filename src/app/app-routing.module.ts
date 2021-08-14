@@ -29,7 +29,11 @@ const routes: Routes = [
     path:'restaurants/:restaurant',
     component:RestaurantDetailComponent,
     resolve:{restaurant:RestaurantResolverService}
+  },  {
+    path: 'user-info-change',
+    loadChildren: () => import('./user-info-change/user-info-change.module').then( m => m.UserInfoChangePageModule)
   }
+
 
 ];
 
