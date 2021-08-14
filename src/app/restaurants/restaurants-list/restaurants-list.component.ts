@@ -13,7 +13,7 @@ export class RestaurantsListComponent implements OnInit {
   restaurantsInit:restaurant[]=[]
   restaurantsSearch:restaurant[]=[];
   searchCriteria:string='';
-  display: string;
+  displayNg: string;
 
 
   constructor(private restaurantService:RestaurantService) { }
@@ -27,28 +27,13 @@ export class RestaurantsListComponent implements OnInit {
 
   search(event:any){
     var query=event.target.value
-    this.restaurantsInit.forEach(item=>{
-      //item.name.startsWith(query)?console.log('a'):this.display='none';
-      var shouldShow = item.name.toLowerCase().indexOf(query) > -1;
-      this.display = shouldShow ? 'block' : 'none';
-    })
-    // if(event.key=='Backspace'){
-    //   this.restaurantsInit=this.restaurants
-    //   this.searchCriteria= this.searchCriteria.substring(0, this.searchCriteria.length-1);
-    //   //console.log(this.searchCriteria);
-    //   this.restaurantsInit=this.restaurantsInit.filter(word=>word.name.startsWith(this.searchCriteria));
-    // }else{
-    //   this.searchCriteria=this.searchCriteria+event.key;
-    //   //console.log(this.searchCriteria);
-    // }
-    // if(this.searchCriteria.length<1){
-    //   this.restaurantsInit=this.restaurants;
-    // }else{
-    //   this.restaurantsInit=this.restaurantsInit.filter(word=>word.name.startsWith(this.searchCriteria));
-    // }
+    if(event.key=='Backspace'){
+      this.restaurantsInit=this.restaurants.filter(word=>word.name.indexOf(query)>-1);
+    }
+    if(query.length<1){
+      this.restaurantsInit=this.restaurants;
+    }else{
+      this.restaurantsInit=this.restaurantsInit.filter(word=>word.name.indexOf(query)>-1);
+    }
   }
-
-
-
-
 }

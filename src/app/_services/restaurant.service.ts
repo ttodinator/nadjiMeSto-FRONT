@@ -22,6 +22,10 @@ export class RestaurantService {
     return this.http.get<restaurant>(this.baseUrl+'restaurant/'+name);
   }
 
+  getTables(model:number){
+    return this.http.get<restaurant>(this.baseUrl+'restaurant/filter/'+model);
+  }
+
   likeRestaurant(id:number){
     //this.toastr.success('Destination added to liked list')
     return this.http.post(this.baseUrl+'user/like/'+id.toString(),{})
