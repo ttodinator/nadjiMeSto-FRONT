@@ -14,6 +14,8 @@ export class AccountService {
   private currentUserSource=new ReplaySubject<User>(1);
   currentUser$=this.currentUserSource.asObservable();
 
+
+
   constructor(private http:HttpClient,private router:Router) { }
 
   register(model:any){
@@ -100,6 +102,29 @@ export class AccountService {
     this.currentUserSource.next(user);
   }
 
+
+  uploadProfilePicture(file:File){
+    const formData = new FormData();
+    formData.append('files', file);
+    return this.http.put<string>(this.baseUrl+'user/upload',formData).pipe(
+
+    )
+  }
+
+  updateProfilePhoto(){
+    return this.http.get(this.baseUrl+'user').pipe(
+      map((response:User)=>{
+        const user=response;
+        console.log(response)
+        const user1:User=JSON.parse(localStorage.getItem('user'));
+        user1.profilePhotoUrl=user.profilePhotoUrl;
+        localStorage.setItem('user',JSON.stringify(user1));
+        this.currentUserSource.next(user1);
+      }
+      
+      )
+    )
+  }
 
 
 }

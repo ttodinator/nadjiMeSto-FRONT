@@ -10,5 +10,6 @@ export interface User {
     userEmail:string,
     password:string,
     roles:string[],
+    profilePhotoUrl:string;
 
 }

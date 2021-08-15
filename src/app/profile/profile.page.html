@@ -18,7 +18,7 @@
 <ion-content>
   <ion-header >
     <ion-card>
-      <img src="assets/pic.jpg"/>
+      <img src="{{user.profilePhotoUrl}}"/>
       <ion-card-header>
         <ion-card-subtitle>Profil korisnika:</ion-card-subtitle>
         <ion-card-title>{{user.username}}</ion-card-title>
@@ -38,5 +38,8 @@
     <ion-button expand="block" (click)="logout()">Izloguj se</ion-button>
   </section>
   <ion-button routerLink="/user-info-change"> Izmeni</ion-button>
-
+  <form enctype='multipart/form-data'>
+    <input type='file' name='userFile' (change)="aaa($event)" ><br>
+    <ion-button (click)="uploadImage()">Upload profile picture</ion-button>
+  </form>
 </ion-content>
