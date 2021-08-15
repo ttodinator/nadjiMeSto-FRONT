@@ -112,6 +112,7 @@ export class AccountService {
   }
 
   updateProfilePhoto(){
+    //return this.http.get<string>(this.baseUrl+'user')
     return this.http.get(this.baseUrl+'user').pipe(
       map((response:User)=>{
         const user=response;
@@ -121,7 +122,6 @@ export class AccountService {
         localStorage.setItem('user',JSON.stringify(user1));
         this.currentUserSource.next(user1);
       }
-      
       )
     )
   }

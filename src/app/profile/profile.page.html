@@ -18,7 +18,7 @@
 <ion-content>
   <ion-header >
     <ion-card>
-      <img src="{{user.profilePhotoUrl}}"/>
+      <img src="{{user.profilePhotoUrl || 'assets/profil.png'}}"/>
       <ion-card-header>
         <ion-card-subtitle>Profil korisnika:</ion-card-subtitle>
         <ion-card-title>{{user.username}}</ion-card-title>

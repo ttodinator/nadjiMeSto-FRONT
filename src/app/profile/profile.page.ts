@@ -26,8 +26,11 @@ export class ProfilePage implements OnInit {
 }
 
   ngOnInit() {
-
-    //console.log(this.user);
+    this.accountService.updateProfilePhoto().subscribe(response=>{
+    })
+    this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
+      this.user=user;
+    })
   }
   logout(){    
 
@@ -48,12 +51,8 @@ aaa(event:Event){
 
 uploadImage(){
   this.accountService.uploadProfilePicture(this.profilePhotoFile).subscribe(res=>{
-
-  })  
-  this.accountService.updateProfilePhoto().subscribe(response=>{
     location.reload();
-  })
-
+  })  
 }
 
 }
