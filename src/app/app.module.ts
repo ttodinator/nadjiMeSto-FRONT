@@ -11,15 +11,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule,ReactiveFormsModule,FormBuilder } from '@angular/forms';
 import { JwtService } from './_services/jwt.service';
+import {CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [AppComponent,NavComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule],
+  imports: [BrowserModule,CommonModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide :HTTP_INTERCEPTORS,useClass:JwtService,multi:true}
+    { provide : HTTP_INTERCEPTORS ,useClass:JwtService,multi:true}
   
   ],
   bootstrap: [AppComponent],
