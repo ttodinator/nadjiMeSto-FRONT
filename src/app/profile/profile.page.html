@@ -35,11 +35,11 @@
 
   <section>
     <header></header>
-    <ion-button expand="block" (click)="logout()">Izloguj se</ion-button>
+    <ion-button color="danger" expand="block" (click)="logout()">Izloguj se</ion-button>
   </section>
-  <ion-button routerLink="/user-info-change"> Izmeni</ion-button>
+  <ion-button expand="block" routerLink="/user-info-change"> Izmeni profil</ion-button>
   <form enctype='multipart/form-data'>
     <input type='file' name='userFile' (change)="aaa($event)" ><br>
-    <ion-button (click)="uploadImage()">Upload profile picture</ion-button>
+    <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
   </form>
 </ion-content>

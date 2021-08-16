@@ -1,0 +1,12 @@
+ion-content{
+    position: fixed;
+    top: 23%;
+}
+.background-image{
+    --background:url(../../assets/Nova-80.jpg) 0 0/100% 100%  no-repeat;
+    
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+  }
