@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div id="container">
+<ion-content  [fullscreen]="true">
+  
+  <ion-card>
     <form [formGroup]='registerForm' (ngSubmit)="register()" >
 <ion-item>
   <ion-grid>
@@ -83,7 +84,9 @@
     <ion-button color="success" type="submit" >Uloguj se</ion-button>
 <ion-button color="dark" (click)="logout()">LogOut</ion-button>
 </form>
-  </div>
+</ion-card>
+  
+
 </ion-content>
 
 
