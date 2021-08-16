@@ -12,10 +12,11 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule,ReactiveFormsModule,FormBuilder } from '@angular/forms';
 import { JwtService } from './_services/jwt.service';
 import {CommonModule } from '@angular/common';
+import { HasRoleDirective } from './_directives/has-role.directive';
 
 
 @NgModule({
-  declarations: [AppComponent,NavComponent],
+  declarations: [AppComponent,NavComponent, HasRoleDirective],
   entryComponents: [],
   imports: [BrowserModule,CommonModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [

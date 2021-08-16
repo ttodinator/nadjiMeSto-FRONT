@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>reservations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+<div *ngFor="let res of reservationsList">
+  <app-reservation-card [reservation]="res" ></app-reservation-card>
+</div>
+  
+</ion-content>

@@ -23,6 +23,9 @@ export class RestaurantsListComponent implements OnInit {
       this.restaurantsInit=response;
       this.restaurants=response;
     })
+
+    //console.log(this.restaurantsInit)
+
   }
 
   search(event:any){

@@ -46,5 +46,8 @@ export class RestaurantService {
     //this.toastr.error('Destination removed from liked list')
     return this.http.delete(this.baseUrl+'user/unlike/'+id.toString(),{})
   }
-  
+  getAllReservations(){
+      return  this.http.get<Reservation[]>(this.baseUrl+'reservation')
+     
+  }
 }

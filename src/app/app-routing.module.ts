@@ -29,9 +29,18 @@ const routes: Routes = [
     path:'restaurants/:restaurant',
     component:RestaurantDetailComponent,
     resolve:{restaurant:RestaurantResolverService}
-  },  {
+  },
+  {
     path: 'user-info-change',
     loadChildren: () => import('./user-info-change/user-info-change.module').then( m => m.UserInfoChangePageModule)
+  },
+  {
+    path: 'liked-restaurants',
+    loadChildren: () => import('./liked-restaurants/liked-restaurants.module').then( m => m.LikedRestaurantsPageModule)
+  },
+  {
+    path: 'reservations',
+    loadChildren: () => import('./reservations/reservations.module').then( m => m.ReservationsPageModule)
   }
 
 

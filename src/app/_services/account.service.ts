@@ -106,9 +106,7 @@ export class AccountService {
   uploadProfilePicture(file:File){
     const formData = new FormData();
     formData.append('files', file);
-    return this.http.put<string>(this.baseUrl+'user/upload',formData).pipe(
-
-    )
+    return this.http.put<string>(this.baseUrl+'user/upload',formData);
   }
 
   updateProfilePhoto(){

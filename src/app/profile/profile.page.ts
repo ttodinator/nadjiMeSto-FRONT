@@ -14,10 +14,13 @@ import { UserService } from '../_services/user.service';
 export class ProfilePage implements OnInit {
   user:User;
   profilePhotoFile:File=null;
+  counter:number=0;
+  photo:string='';
 
   constructor(private userService:UserService, public accountService:AccountService,private router:Router,private sanitizer: DomSanitizer) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
       this.user=user;
+      this.photo=user.profilePhotoUrl;
     })
    }
 
@@ -28,9 +31,11 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
     this.accountService.updateProfilePhoto().subscribe(response=>{
     })
-    this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
-      this.user=user;
-    })
+    // this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
+    //   this.user=user;
+    // })
+    // console.log(this.user.profilePhotoUrl)
+
   }
   logout(){    
 
@@ -44,14 +49,22 @@ export class ProfilePage implements OnInit {
 }
 
 aaa(event:Event){
+  event.preventDefault
   const element = event.currentTarget as HTMLInputElement;
   let fileList: FileList | null = element.files;
   this.profilePhotoFile=element.files[0];
 }
 
 uploadImage(){
+  this.counter=this.counter+1;
   this.accountService.uploadProfilePicture(this.profilePhotoFile).subscribe(res=>{
-    location.reload();
+    const words = this.photo.split('/');
+    const words1=words[2].split('.');
+    let num:number=+words1[0]+1
+    let strPhoto=words[0]+'/'+words[1]+'/'+num+'.'+words1[1].toLowerCase;
+    console.log(strPhoto);
+    this.user.profilePhotoUrl=strPhoto;
+    this.accountService.setCurrentUser(this.user);
   })  
 }
 

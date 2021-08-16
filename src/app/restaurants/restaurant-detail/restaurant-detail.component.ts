@@ -75,6 +75,7 @@ export class RestaurantDetailComponent implements OnInit {
     console.log(x);
     this.model=({
       restaurantId:this.restaurant.restaurantId,
+      restaurantName:this.restaurant.name,
       timeOfTheDay:this.timeOfTheDay,
       seating:this.seating,
       date:this.date,

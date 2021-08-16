@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>liked-restaurants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div *ngFor="let item of restaurants">
+  <app-restaurant-card [restaurant]="item" ></app-restaurant-card >
+</div>
+
+</ion-content>

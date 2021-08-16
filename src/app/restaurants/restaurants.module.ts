@@ -10,12 +10,14 @@ import { RestaurantsPage } from './restaurants.page';
 import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModuleModule,
     RestaurantsPageRoutingModule,
   ],
   exports:[RestaurantsListComponent],
