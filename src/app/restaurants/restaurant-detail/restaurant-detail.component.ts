@@ -9,6 +9,7 @@ import { RestaurantService } from 'src/app/_services/restaurant.service';
 import { toastController } from '@ionic/core';
 
 
+
 @Component({
   selector: 'app-restaurant-detail',
   templateUrl: './restaurant-detail.component.html',
@@ -22,12 +23,14 @@ export class RestaurantDetailComponent implements OnInit {
   seatingList:number[];
   chosedRestaurant=false;
   dateAAAA:Date=new Date();
-  minDate:string;
+  //minDate:string;
   model:any;
   timeOfTheDay;
   seating;
   date:Date=new Date();
   user:User;
+  minDate: String = new Date().toISOString();
+  maxDate: any = new Date(new Date().setDate(new Date().getDate() + 10)).toISOString();
 
   constructor(private route:ActivatedRoute,public toastController: ToastController, private restaurantService:RestaurantService,private accountService:AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{

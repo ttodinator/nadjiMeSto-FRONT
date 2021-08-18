@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { formatDate } from '@angular/common';
+import { User } from '../_models/user';
 
 
 @Injectable({
@@ -19,6 +20,10 @@ export class UserService {
     return this.http.post<string>(this.baseUrl+'user/upload',formData).subscribe(()=>{
       
     })
+  }
+
+  getUser(){
+    return this.http.get<User>(this.baseUrl+'user/get-user');
   }
 
 }

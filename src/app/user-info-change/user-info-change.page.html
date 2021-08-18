@@ -7,15 +7,15 @@
 <ion-content class="background-image" [fullscreen]="true">
    
   
-<ion-card>
+<ion-card *ngIf="user">
   <ion-card-subtitle>Izmena licnih podataka</ion-card-subtitle>
     <form [formGroup]='userChangeForm' (ngSubmit)="userInfoUpdate()" >
     <ion-item>
       <ion-grid>
         <ion-row>
           <ion-item>
-            <ion-label position="stacked">Ime</ion-label>
-            <ion-input formControlName='name'></ion-input>
+            <ion-label position="stacked">Ime </ion-label>
+            <ion-input formControlName='name' value='John'></ion-input>
           </ion-item>
         </ion-row>
         

@@ -67,7 +67,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Izaberite datum</ion-label>
-        <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" min="1994-02-14" max="2012-12-09"></ion-datetime>
+        <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" [min]="minDate" [max]="maxDate"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Doba dana: <ion-icon name="person-outline"></ion-icon></ion-label>

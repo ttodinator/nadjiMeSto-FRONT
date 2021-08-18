@@ -41,7 +41,11 @@ const routes: Routes = [
   {
     path: 'reservations',
     loadChildren: () => import('./reservations/reservations.module').then( m => m.ReservationsPageModule)
+  },  {
+    path: 'restaurant-reservation',
+    loadChildren: () => import('./restaurant-reservation/restaurant-reservation.module').then( m => m.RestaurantReservationPageModule)
   }
+
 
 
 ];
