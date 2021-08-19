@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content>
-  <p>aaaaa</p>
+  <ion-card class="reservation" >
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Broj osoba <ion-icon name="person-outline"></ion-icon></ion-label>
+        <ion-select [(ngModel)]="seating" multiple="false">
+          <ion-select-option *ngFor="let item of seatingList" [value]="item">{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Izaberite datum</ion-label>
+        <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" [min]="minDate" [max]="maxDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Doba dana: <ion-icon name="person-outline"></ion-icon></ion-label>
+        <ion-select [(ngModel)]="timeOfTheDay" multiple="false">
+          <ion-select-option  [value]="'morning'">Jutro</ion-select-option>
+          <ion-select-option  [value]="'noon'">Popodne</ion-select-option>
+          <ion-select-option  [value]="'afternoon'">Noc</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="reserve()">Rezervisi</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
