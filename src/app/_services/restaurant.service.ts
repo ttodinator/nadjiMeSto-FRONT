@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { restaurant } from '../_models/restaurants';
 import { environment } from 'src/environments/environment';
 import { Reservation } from '../_models/reservation';
@@ -49,5 +49,12 @@ export class RestaurantService {
   getAllReservations(){
       return  this.http.get<Reservation[]>(this.baseUrl+'reservation')
      
+  }
+  getDailyReservations(id: number,date: Date){
+   
+    
+
+
+    return this.http.get<Reservation[]>(this.baseUrl+'reservation/daily?restaurantId='+id.toString()+'&date='+date.toString())
   }
 }

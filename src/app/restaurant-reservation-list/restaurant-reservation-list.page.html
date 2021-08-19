@@ -1,13 +1,25 @@
 <ion-header>
+  
   <ion-toolbar>
-    <ion-title>restaurant-reservation-list</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="medium" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="floating">Izaberite datum</ion-label>
+  <ion-card>
+    <ion-item color="success">
+    <ion-label >Izaberite datum</ion-label>
     <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" ></ion-datetime>
   </ion-item>
-    <ion-button (click)="findReservation()" >Pronadji rezervacije za izabrani dan</ion-button>
+    <ion-button expand="block" (click)="findReservation()" >Pronadji rezervacije za izabrani dan</ion-button>
+  </ion-card>
+     <div *ngIf="clicked">
+    <div *ngFor="let res of reservationsList">
+      <app-reservation-card [reservation]="res" ></app-reservation-card>
+    </div>
+  </div>
+ 
 </ion-content>
