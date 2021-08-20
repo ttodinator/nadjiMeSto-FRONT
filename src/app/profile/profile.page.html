@@ -24,7 +24,7 @@
         <ion-card-title>{{user.username}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        Nesto o korisniku bla bla truc
+        User info
       </ion-card-content>
       
       
@@ -35,11 +35,13 @@
 
   <section>
     <header></header>
-    <ion-button color="danger" expand="block" (click)="logout()">Izloguj se</ion-button>
+    <form enctype='multipart/form-data'>
+      <input type='file' name='userFile' (change)="aaa($event)" ><br>
+      <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
+    </form>
+    
   </section>
   <ion-button expand="block" routerLink="/user-info-change"> Izmeni profil</ion-button>
-  <form enctype='multipart/form-data'>
-    <input type='file' name='userFile' (change)="aaa($event)" ><br>
-    <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
-  </form>
+  
+  <ion-button color="dark" expand="block" (click)="logout()">Izloguj se</ion-button>
 </ion-content>

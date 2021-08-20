@@ -30,6 +30,7 @@ export class RestaurantCardComponent implements OnInit {
     }else{
       this.isLiked=false;
     }
+    console.log(this.restaurant)
     for(let i=0;i<this.restaurant.photos.length;i++){
       if(this.restaurant.photos[i].isMain==true){
         this.mainImageUrl=this.restaurant.photos[i].url;
