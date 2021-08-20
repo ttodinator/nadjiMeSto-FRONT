@@ -14,6 +14,7 @@ export class RestaurantPhotosUploadPage implements OnInit {
   profilePhotoFile:File=null;
   counter:number=0;
   restaurant: restaurant;
+  photoNo:number;
   user:User;
   nesto:string;
   imgSlide={
@@ -64,5 +65,12 @@ export class RestaurantPhotosUploadPage implements OnInit {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
       }
     );
+  }
+
+  changeMainPhoto(){
+    console.log(this.photoNo)
+    this.restaurantService.changeMainPhoto(this.photoNo).subscribe(()=>{
+      console.log(111)
+    })
   }
 }
