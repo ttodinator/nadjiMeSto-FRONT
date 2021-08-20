@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
 </ion-header>
 
-<ion-content  [fullscreen]="true">
+<ion-content  [fullscreen]="true" class="background-image">
   
-  <ion-card>
+  <ion-card color="light">
     <form [formGroup]='registerForm' (ngSubmit)="register()" >
 <ion-item>
   <ion-grid>
@@ -14,7 +14,7 @@
       </ion-item>
     </ion-row>
     <ion-row>
-      <div class="inputDiv" *ngIf="registerForm.get('name').hasError('required') " >Morate da unesete ime</div>
+      <div class="inputDiv" *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').touched===true" >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-item>
@@ -24,7 +24,7 @@
 
     </ion-row>
     <ion-row>
-      <div class="inputDiv" *ngIf="registerForm.get('surname').hasError('required') " >Morate da unesete ime</div>
+      <div class="inputDiv" *ngIf="registerForm.get('surname').hasError('required') && registerForm.get('surname').touched===true" >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-item>
@@ -34,7 +34,7 @@
 
     </ion-row>
     <ion-row>
-      <div class="inputDiv" *ngIf="registerForm.get('userEmail').hasError('required') " >Morate da unesete ime</div>
+      <div class="inputDiv" *ngIf="registerForm.get('userEmail').hasError('required') && registerForm.get('userEmail').touched===true " >Morate da unesete ime</div>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -43,7 +43,7 @@
           <ion-input formControlName='username'></ion-input>
         </ion-item>
         <ion-row>
-          <div class="inputDiv" *ngIf="registerForm.get('username').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched===true " >Morate da unesete ime</div>
         </ion-row>
       </ion-col>
       <ion-col>
@@ -52,7 +52,7 @@
           <ion-input formControlName='cellphoneNumber'></ion-input>
         </ion-item>
         <ion-row>
-          <div class="inputDiv" *ngIf="registerForm.get('cellphoneNumber').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('cellphoneNumber').hasError('required') && registerForm.get('cellphoneNumber').touched===true" >Morate da unesete ime</div>
         </ion-row>
       </ion-col>
     </ion-row>
@@ -63,8 +63,8 @@
           <ion-input formControlName='password'></ion-input>
         </ion-item>
         <ion-row>
-          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('required') " >Morate da unesete ime</div>
-          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('minlength') " >Mora 6</div>
+          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched===true " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched===true " >Mora 6</div>
         </ion-row>
       </ion-col>
       <ion-col>

@@ -3,7 +3,8 @@
 </ion-header>
 <ion-content class="background-image" [fullscreen]="true">
   <div id="container">
-    <ion-card>
+    <ion-card  color="success" button="true" (click)="clickOn()" *ngIf="!clicked"><ion-card-title>Prijavi se</ion-card-title></ion-card>
+    <ion-card *ngIf="clicked">
       <ion-card-subtitle> Prijavi se/Registruj se ako nemas nalog</ion-card-subtitle>
     <form [formGroup]='loginForm' (ngSubmit)="goTo()">
  
@@ -26,11 +27,11 @@
     
       
     
-        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('required') " >Morate da unesete lozinku</div>
-        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('minlength') " >Lozinka mora biti duza od 6 karaktera</div>
+        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched===true" >Morate da unesete lozinku</div>
+        <div class="inputDiv" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched===true " >Lozinka mora biti duza od 6 karaktera</div>
     
       <ion-button [disabled]='!loginForm.valid' type="submit" color="success">Prijavi se</ion-button>
-      <ion-button routerLink="/register" color="dark">Registruj se</ion-button>
+      <ion-button fill="clear" routerLink="/register" color="dark">Registruj se</ion-button>
 
     </form>
   </ion-card>
