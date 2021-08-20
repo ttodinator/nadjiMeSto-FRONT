@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { restaurant } from '../_models/restaurants';
+import { User } from '../_models/user';
+import { AccountService } from '../_services/account.service';
 import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
@@ -9,8 +13,26 @@ import { RestaurantService } from '../_services/restaurant.service';
 export class RestaurantPhotosUploadPage implements OnInit {
   profilePhotoFile:File=null;
   counter:number=0;
+  restaurant: restaurant;
+  user:User;
+  nesto:string;
+  imgSlide={
+    freeMode:true,
+    slidesPerView:1,
+    slidesOffsetBefore:11,
+  };
 
-  constructor(private restaurantService:RestaurantService) { }
+  constructor(private accountService:AccountService,private restaurantService:RestaurantService) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe(response=>{
+      this.user=response;
+      this.nesto=this.toTitleCase(this.user.username);
+      console.log(this.nesto);
+      this.restaurantService.getRestaurant(this.nesto).subscribe(res=>{
+        this.restaurant=res;
+        console.log(this.restaurant)
+      })
+    })
+   }
 
   ngOnInit() {
   }
@@ -33,5 +55,14 @@ export class RestaurantPhotosUploadPage implements OnInit {
       // this.user.profilePhotoUrl=strPhoto;
       // this.accountService.setCurrentUser(this.user);
     })  
+  }
+
+  toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
   }
 }
