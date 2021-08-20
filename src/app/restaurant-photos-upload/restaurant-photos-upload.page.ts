@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { restaurant } from '../_models/restaurants';
 import { User } from '../_models/user';
@@ -23,7 +24,7 @@ export class RestaurantPhotosUploadPage implements OnInit {
     slidesOffsetBefore:11,
   };
 
-  constructor(private accountService:AccountService,private restaurantService:RestaurantService) {
+  constructor(private toast:ToastController,private accountService:AccountService,private restaurantService:RestaurantService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(response=>{
       this.user=response;
       this.nesto=this.toTitleCase(this.user.username);
@@ -67,10 +68,26 @@ export class RestaurantPhotosUploadPage implements OnInit {
     );
   }
 
-  changeMainPhoto(){
+  async changeMainPhoto(){
+    const toastFalse= await this.toast.create({
+      message: "Slika promenjena",
+      duration: 5000,
+      color: "success"
+  
+    });
+    const toasttrue= await this.toast.create({
+      message: "Slika nije promenjena, pokusajte ponovo",
+      duration: 5000,
+      color: "danger"
+  
+    });
+    
     console.log(this.photoNo)
     this.restaurantService.changeMainPhoto(this.photoNo).subscribe(()=>{
       console.log(111)
+      toastFalse.present();
+    },error=>{
+      toasttrue.present();
     })
   }
 }

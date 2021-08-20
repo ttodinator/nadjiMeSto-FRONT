@@ -5,6 +5,7 @@ import { AccountService } from '../_services/account.service';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { UserService } from '../_services/user.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,7 @@ export class ProfilePage implements OnInit {
   counter:number=0;
   photo:string='';
 
-  constructor(private userService:UserService, public accountService:AccountService,private router:Router,private sanitizer: DomSanitizer) {
+  constructor(private toast:ToastController,private userService:UserService, public accountService:AccountService,private router:Router,private sanitizer: DomSanitizer) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
       this.user=user;
       this.photo=user.profilePhotoUrl;
@@ -55,7 +56,13 @@ aaa(event:Event){
   this.profilePhotoFile=element.files[0];
 }
 
-uploadImage(){
+async uploadImage(){
+  const toastFalse= await this.toast.create({
+    message: "Profilna slika postavljena",
+    duration: 5000,
+    color: "success"
+
+  });
   this.counter=this.counter+1;
   this.accountService.uploadProfilePicture(this.profilePhotoFile).subscribe(res=>{
     const words = this.photo.split('/');
@@ -64,6 +71,7 @@ uploadImage(){
     let strPhoto=words[0]+'/'+words[1]+'/'+num+'.'+words1[1].toLowerCase;
     console.log(strPhoto);
     this.user.profilePhotoUrl=strPhoto;
+    toastFalse.present();
     this.accountService.setCurrentUser(this.user);
   })  
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { restaurant } from 'src/app/_models/restaurants';
 import { User } from 'src/app/_models/user';
@@ -18,7 +19,7 @@ export class RestaurantCardComponent implements OnInit {
   isLiked:boolean=false;
   mainImageUrl:string=''
 
-  constructor(private router:Router,private accountService:AccountService,private restaurantService:RestaurantService) {
+  constructor(private toast:ToastController,private router:Router,private accountService:AccountService,private restaurantService:RestaurantService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user=>this.user=user);
     //console.log(this.user.likes);
    }
@@ -38,10 +39,12 @@ export class RestaurantCardComponent implements OnInit {
     }
   }
 
+
   likeRestaurant(){
     this.isLiked=!this.isLiked;
     if(this.isLiked==true){
       this.addLike(this.restaurant);
+
     }
     if(this.isLiked==false){
       this.deleteLike(this.restaurant);
@@ -60,10 +63,18 @@ export class RestaurantCardComponent implements OnInit {
     })
   }
 
-  addLike(restaurant1:restaurant){
+  async addLike(restaurant1:restaurant){
+    const toastFalse= await this.toast.create({
+      message: "Restoran dodat u lajkovane restorane",
+      duration: 5000,
+      color: "success"
+  
+    });
+
     this.restaurantService.likeRestaurant(restaurant1.restaurantId).subscribe(()=>{
       this.user.likes.push(restaurant1.restaurantId);
       this.accountService.updateUser(this.user);
+      toastFalse.present();
     })
   }
 

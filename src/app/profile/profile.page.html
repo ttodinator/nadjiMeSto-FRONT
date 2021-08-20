@@ -26,6 +26,10 @@
       <ion-card-content>
         User info
       </ion-card-content>
+       <form enctype='multipart/form-data'>
+        <input type='file' name='userFile' (change)="aaa($event)" ><br>
+        <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
+      </form>
       
       
     </ion-card>
@@ -33,15 +37,14 @@
   
   </ion-header>
 
-  <section>
-    <header></header>
-    <form enctype='multipart/form-data'>
-      <input type='file' name='userFile' (change)="aaa($event)" ><br>
-      <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
-    </form>
+
+  <ion-row>
+    <ion-col>
+  <ion-button expand="block"  routerLink="/user-info-change"> Izmeni profil</ion-button>
+</ion-col>
+  <ion-col>
+  <ion-button expand="block" color="dark"  (click)="logout()">Izloguj se</ion-button>
+</ion-col>
+</ion-row>
     
-  </section>
-  <ion-button expand="block" routerLink="/user-info-change"> Izmeni profil</ion-button>
-  
-  <ion-button color="dark" expand="block" (click)="logout()">Izloguj se</ion-button>
 </ion-content>
