@@ -20,7 +20,7 @@
         </ion-row>
         
         <ion-row>
-          <div class="inputDiv" *ngIf="userChangeForm.get('name').hasError('required') " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="userChangeForm.get('name').hasError('required') && userChangeForm.get('name').touched===true " >Morate da unesete ime</div>
         </ion-row>
         <ion-row>
           <ion-item>
@@ -30,7 +30,7 @@
     
         </ion-row>
         <ion-row>
-          <div class="inputDiv" *ngIf="userChangeForm.get('surname').hasError('required') " >Morate da unesete prezime</div>
+          <div class="inputDiv" *ngIf="userChangeForm.get('surname').hasError('required') && userChangeForm.get('surname').touched===true" >Morate da unesete prezime</div>
         </ion-row>
         <ion-row>
           <ion-item>
@@ -40,7 +40,7 @@
     
         </ion-row>
         <ion-row>
-          <div class="inputDiv" *ngIf="userChangeForm.get('userEmail').hasError('required') " >Morate da unesete email</div>
+          <div class="inputDiv" *ngIf="userChangeForm.get('userEmail').hasError('required') && userChangeForm.get('userEmail').touched===true " >Morate da unesete email</div>
         </ion-row>
         <ion-row>
           <ion-col>
@@ -49,7 +49,7 @@
               <ion-input formControlName='username'></ion-input>
             </ion-item>
             <ion-row>
-              <div class="inputDiv" *ngIf="userChangeForm.get('username').hasError('required') " >Morate da unesete username</div>
+              <div class="inputDiv" *ngIf="userChangeForm.get('username').hasError('required') && userChangeForm.get('username').touched===true" >Morate da unesete username</div>
             </ion-row>
           </ion-col>
           <ion-col>
@@ -58,7 +58,7 @@
               <ion-input formControlName='cellphoneNumber'></ion-input>
             </ion-item>
             <ion-row>
-              <div class="inputDiv" *ngIf="userChangeForm.get('cellphoneNumber').hasError('required') " >Morate da unesete telefon</div>
+              <div class="inputDiv" *ngIf="userChangeForm.get('cellphoneNumber').hasError('required') && userChangeForm.get('cellphoneNumber').touched===true " >Morate da unesete telefon</div>
             </ion-row>
           </ion-col>
         </ion-row>
@@ -69,8 +69,8 @@
               <ion-input formControlName='password'></ion-input>
             </ion-item>
             <ion-row>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('required') " >Morate da unesete password</div>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('minlength') " >Mora 6</div>
+              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('required') && userChangeForm.get('password').touched===true " >Morate da unesete password</div>
+              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('minlength') && userChangeForm.get('password').touched===true " >Mora 6</div>
             </ion-row>
           </ion-col>
           

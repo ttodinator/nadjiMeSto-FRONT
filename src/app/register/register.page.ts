@@ -4,6 +4,7 @@ import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -14,19 +15,27 @@ export class RegisterPage implements OnInit {
 
   registerForm:FormGroup;
 
-  constructor(private accountService:AccountService, private router: Router) { }
+  constructor(private toast:ToastController,private accountService:AccountService, private router: Router) { }
 
   ngOnInit() {
     this.initalizeForm();
   }
 
 
-  register(){
+  async register(){
+    const toastFalse= await this.toast.create({
+      message: "Neuspesno registrovanje",
+      duration: 5000,
+      color: "danger"
+  
+    });
   this.accountService.register(this.registerForm.value).subscribe(response=>{
     console.log(response);
     this.router.navigateByUrl('/restaurants');
 
 
+ },error=>{
+   toastFalse.present()
  })
  console.log(this.registerForm.value)
   }
