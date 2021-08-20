@@ -13,6 +13,7 @@ import { AccountService } from '../_services/account.service';
 export class HomePage implements OnInit{
 
   loginForm:FormGroup;
+  clicked:boolean=false;
 
 
   constructor(private router:Router,private accountService:AccountService) {
@@ -38,6 +39,9 @@ export class HomePage implements OnInit{
     this.accountService.login(this.loginForm.value).subscribe(response=>{
       this.router.navigateByUrl('/restaurants');
     })
+  }
+  clickOn(){
+    this.clicked=true;
   }
 
 
