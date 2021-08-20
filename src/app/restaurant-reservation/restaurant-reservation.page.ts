@@ -67,12 +67,14 @@ export class RestaurantReservationPage implements OnInit {
 
     const toastTrue=await this.toastController.create({
       message: "Vasa rezervacija je napravljena",
-      duration: 5000
+      duration: 5000,
+      color:"success"
 
     });
     const toastFalse=await this.toastController.create({
       message: "Za izabrane kriterijume nema slobodnih stolova",
-      duration: 5000
+      duration: 5000,
+      color:"danger"
 
     });
     console.log(this.model);

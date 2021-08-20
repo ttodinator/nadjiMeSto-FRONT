@@ -52,6 +52,10 @@ const routes: Routes = [
   {
     path: 'restaurant-photos-upload',
     loadChildren: () => import('./restaurant-photos-upload/restaurant-photos-upload.module').then( m => m.RestaurantPhotosUploadPageModule)
+  },
+  {
+    path: 'create-restaurant',
+    loadChildren: () => import('./create-restaurant/create-restaurant.module').then( m => m.CreateRestaurantPageModule)
   }
 
 
