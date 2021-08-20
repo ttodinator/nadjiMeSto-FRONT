@@ -60,4 +60,8 @@ export class RestaurantService {
     return this.http.post<string>(this.baseUrl+'restaurant/upload',formData);
   }
 
+  changeMainPhoto(asd:number){
+    return this.http.put<any>(this.baseUrl+'restaurant/'+asd,{});
+  }
+
 }

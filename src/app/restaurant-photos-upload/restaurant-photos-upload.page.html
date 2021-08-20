@@ -15,4 +15,12 @@
     <input type='file' name='userFile' (change)="aaa($event)" ><br>
     <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
   </form>
+  <p>Unesite redni broj fotografije koju zelite da postavite za glavnu</p>
+  <ion-item>
+    <ion-label position="floating">Redni broj:</ion-label>
+    <ion-input [(ngModel)]="photoNo" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="changeMainPhoto()" >Promeni glavnu fotografiju</ion-button>
+  </ion-item>
 </ion-content>
