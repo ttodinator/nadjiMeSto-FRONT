@@ -16,6 +16,7 @@ export class RestaurantCardComponent implements OnInit {
   @Input() restaurant:restaurant;
   user:User;
   isLiked:boolean=false;
+  mainImageUrl:string=''
 
   constructor(private router:Router,private accountService:AccountService,private restaurantService:RestaurantService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user=>this.user=user);
@@ -24,12 +25,15 @@ export class RestaurantCardComponent implements OnInit {
   
 
   ngOnInit() {
-    //console.log(this.user.likes)
     if(this.user.likes.includes(this.restaurant.restaurantId)){
-      //console.log('JEJJJ');
       this.isLiked=true;
     }else{
       this.isLiked=false;
+    }
+    for(let i=0;i<this.restaurant.photos.length;i++){
+      if(this.restaurant.photos[i].isMain==true){
+        this.mainImageUrl=this.restaurant.photos[i].url;
+      }
     }
   }
 

@@ -48,6 +48,7 @@ export class RestaurantDetailComponent implements OnInit {
     this.route.data.subscribe(data=>{
       //console.log(data);
       this.restaurant=data.restaurant;
+      console.log(this.restaurant)
     })
 
     this.restaurantService.getTables(this.restaurant.restaurantId).subscribe(res=>{

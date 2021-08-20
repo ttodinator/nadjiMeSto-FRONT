@@ -22,8 +22,8 @@
     
   </div> -->
   <ion-slides [options]="imgSlide">
-    <ion-slide *ngFor="let image of imagesList">
-      <img src="{{image}}">
+    <ion-slide *ngFor="let image of restaurant.photos">
+      <img src="{{image.url}}">
 
     </ion-slide>
   </ion-slides>
