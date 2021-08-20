@@ -48,6 +48,10 @@ const routes: Routes = [
   {
     path: 'restaurant-reservation-list',
     loadChildren: () => import('./restaurant-reservation-list/restaurant-reservation-list.module').then( m => m.RestaurantReservationListPageModule)
+  },
+  {
+    path: 'restaurant-photos-upload',
+    loadChildren: () => import('./restaurant-photos-upload/restaurant-photos-upload.module').then( m => m.RestaurantPhotosUploadPageModule)
   }
 
 

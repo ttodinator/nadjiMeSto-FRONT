@@ -51,10 +51,13 @@ export class RestaurantService {
      
   }
   getDailyReservations(id: number,date: Date){
-   
-    
-
-
     return this.http.get<Reservation[]>(this.baseUrl+'reservation/daily?restaurantId='+id.toString()+'&date='+date.toString())
   }
+
+  uploadPhoto(file:File){
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<string>(this.baseUrl+'restaurant/upload',formData);
+  }
+
 }

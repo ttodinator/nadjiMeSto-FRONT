@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>restaurant-photos-upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form enctype='multipart/form-data'>
+    <input type='file' name='userFile' (change)="aaa($event)" ><br>
+    <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
+  </form>
+</ion-content>

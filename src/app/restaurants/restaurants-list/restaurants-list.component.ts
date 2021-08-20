@@ -22,6 +22,7 @@ export class RestaurantsListComponent implements OnInit {
     this.restaurantService.getAllRestaurants().subscribe(response=>{
       this.restaurantsInit=response;
       this.restaurants=response;
+      console.log(this.restaurants)
     })
 
     //console.log(this.restaurantsInit)

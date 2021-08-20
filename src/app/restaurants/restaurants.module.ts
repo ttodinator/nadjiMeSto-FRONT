@@ -7,9 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { RestaurantsPageRoutingModule } from './restaurants-routing.module';
 
 import { RestaurantsPage } from './restaurants.page';
-import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
+import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 @NgModule({
@@ -17,10 +16,10 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedModuleModule,
     RestaurantsPageRoutingModule,
+    SharedModuleModule
   ],
   exports:[RestaurantsListComponent],
-  declarations: [RestaurantsPage,RestaurantsListComponent,RestaurantDetailComponent,RestaurantCardComponent]
+  declarations: [RestaurantsPage,RestaurantDetailComponent,RestaurantsListComponent]
 })
 export class RestaurantsPageModule {}
