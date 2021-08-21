@@ -33,7 +33,13 @@ export class RestaurantReservationPage implements OnInit {
       })
    }
 
-  ngOnInit() {
+   async ngOnInit() {
+    const toastFalse= await this.toastController.create({
+      message: "Doslo je do greske pokusajte ponovo",
+      duration: 5000,
+      color:"danger"
+
+    });
      this.restaurantService.getRestaurant(this.nesto).subscribe(response=>{
        this.restaurant=response;
        console.log(this.restaurant);
@@ -41,6 +47,9 @@ export class RestaurantReservationPage implements OnInit {
         this.seatingList=res;
         console.log(this.seatingList)
       })
+     },error=>{
+       toastFalse.present();
+
      })
 
   }

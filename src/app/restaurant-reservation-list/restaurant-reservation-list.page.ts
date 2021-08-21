@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { Reservation } from '../_models/reservation';
 import { restaurant } from '../_models/restaurants';
@@ -20,7 +21,7 @@ export class RestaurantReservationListPage implements OnInit {
   clicked: boolean=false;
   
  date:Date=new Date();
-  constructor(private accountService:AccountService,private restaurantService:RestaurantService) {
+  constructor(private toast:ToastController,private accountService:AccountService,private restaurantService:RestaurantService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(response=>{
       this.user=response;
       this.nesto=this.toTitleCase(this.user.username);
@@ -31,6 +32,7 @@ export class RestaurantReservationListPage implements OnInit {
    }
 
   ngOnInit() {
+   
 
 
   }
@@ -43,12 +45,32 @@ export class RestaurantReservationListPage implements OnInit {
     );
   }
 //treba nam id od restorana i datum koji prosledjujemo metodi
-  findReservation(){    
+  async findReservation(){  
+    
+    const toastEmptyList=await this.toast.create({
+      message: "Za izabrani datum nema kreiranih rezervacija",
+      duration: 5000,
+      color: "danger"
+    }) 
+    const toastError=await this.toast.create({
+      message: "Došlo je do greške, izaberite datum i pokusajte ponovo",
+      duration: 5000,
+      color: "warning"
+    }) 
 
   this.restaurantService.getDailyReservations(1,this.date).subscribe(response=>{
     this.reservationsList=response;
     console.log(this.reservationsList);
+    
+    if(this.reservationsList.length==0){
+      toastEmptyList.present();
+    }
+  
+  },error=>{
+    console.log("Doslo je do greske");
+    toastError.present();
   })
+  
   this.clicked=true;
   }
   

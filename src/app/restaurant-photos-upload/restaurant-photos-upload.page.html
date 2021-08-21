@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurant-photos-upload</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,14 +13,14 @@
   </ion-slides>
   <form enctype='multipart/form-data'>
     <input type='file' name='userFile' (change)="aaa($event)" ><br>
-    <ion-button color="success" expand="block" (click)="uploadImage()">Upload profile picture</ion-button>
+    <ion-button color="success" expand="block" (click)="uploadImage()">Unos fotografija</ion-button>
   </form>
-  <p>Unesite redni broj fotografije koju zelite da postavite za glavnu</p>
+  <p>Unesite redni broj fotografije koju zelite da postavite za cover sliku</p>
   <ion-item>
     <ion-label position="floating">Redni broj:</ion-label>
-    <ion-input [(ngModel)]="photoNo" ></ion-input>
+    <ion-input [(ngModel)]="photoNo"  ></ion-input>
   </ion-item>
   <ion-item>
-    <ion-button (click)="changeMainPhoto()" >Promeni glavnu fotografiju</ion-button>
+    <ion-button  (click)="changeMainPhoto()" >Promeni glavnu fotografiju</ion-button>
   </ion-item>
 </ion-content>

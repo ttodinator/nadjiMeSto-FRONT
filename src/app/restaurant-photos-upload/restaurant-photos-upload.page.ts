@@ -18,6 +18,7 @@ export class RestaurantPhotosUploadPage implements OnInit {
   photoNo:number;
   user:User;
   nesto:string;
+  ok:boolean=false;
   imgSlide={
     freeMode:true,
     slidesPerView:1,
@@ -46,7 +47,13 @@ export class RestaurantPhotosUploadPage implements OnInit {
     this.profilePhotoFile=element.files[0];
   }
   
-  uploadImage(){
+  async uploadImage(){
+    const toasttrue= await this.toast.create({
+      message: "Doslo je do greske prilikom unosa slika",
+      duration: 5000,
+      color: "danger"
+  
+    });
     this.counter=this.counter+1;
     this.restaurantService.uploadPhoto(this.profilePhotoFile).subscribe(res=>{
       // const words = this.photo.split('/');
@@ -56,6 +63,8 @@ export class RestaurantPhotosUploadPage implements OnInit {
       // console.log(strPhoto);
       // this.user.profilePhotoUrl=strPhoto;
       // this.accountService.setCurrentUser(this.user);
+    },error=>{
+       toasttrue.present()
     })  
   }
 
@@ -81,13 +90,24 @@ export class RestaurantPhotosUploadPage implements OnInit {
       color: "danger"
   
     });
+    const toastVal= await this.toast.create({
+      message: "Broj mora biti veći od nula",
+      duration: 5000,
+      color: "danger"
+  
+    });
+
+    if(this.photoNo>0){ console.log(this.photoNo)
+      this.restaurantService.changeMainPhoto(this.photoNo).subscribe(()=>{
+        console.log(111)
+        toastFalse.present();
+      },error=>{
+        toasttrue.present();
+      })}else{
+        toastVal.present()
+      }
     
-    console.log(this.photoNo)
-    this.restaurantService.changeMainPhoto(this.photoNo).subscribe(()=>{
-      console.log(111)
-      toastFalse.present();
-    },error=>{
-      toasttrue.present();
-    })
+   
   }
+  
 }
