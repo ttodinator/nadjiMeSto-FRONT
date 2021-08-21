@@ -1,13 +1,13 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home" color="medium"></ion-back-button>
-    </ion-buttons>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  
+  <ion-buttons>
+    <ion-button fill="solid" shape="round" color="light" routerLink="/restaurants">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+
+<ion-content [fullscreen]="true" class="background-image">
   <ion-card class="reservation" >
     <ion-card-content>
       <ion-item>

@@ -67,16 +67,14 @@
           <div class="inputDiv" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched===true " >Mora 6</div>
         </ion-row>
       </ion-col>
-      <ion-col>
-    
-      </ion-col>
+      
     </ion-row>
   </ion-grid>
 
 </ion-item>
 
 
-    <ion-button expand="block" color="success" type="submit" >Uloguj se</ion-button>
+    <ion-button [disabled]='!registerForm.valid' expand="block" color="success" type="submit" >Uloguj se</ion-button>
     <ion-button expand="block" color="dark" routerLink="/home">Odustani</ion-button>
 </form>
 </ion-card>

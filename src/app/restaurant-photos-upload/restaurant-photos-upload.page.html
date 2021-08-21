@@ -1,10 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" class="background-image">
+  <ion-card>
   <ion-slides [options]="imgSlide" *ngIf="restaurant?.photos">
     <ion-slide *ngFor="let image of restaurant.photos">
       <img src="{{image.url}}">
@@ -23,4 +22,5 @@
   <ion-item>
     <ion-button  (click)="changeMainPhoto()" >Promeni glavnu fotografiju</ion-button>
   </ion-item>
+</ion-card>
 </ion-content>

@@ -2,3 +2,15 @@ ion-content{
     top: 25%;
 
   }
+  .background-image{
+    --background:url(../../assets/Other.jpg) 0 0/100% 100%  no-repeat;
+    
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+  }
+  ion-card-title{
+    --color: #4A524C;
+    
+  }

@@ -1,12 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <ion-card color="light">
-    <ion-card-subtitle>Unesite podatke restorana</ion-card-subtitle>
+
+<ion-content [fullscreen]="true" class="background-image">
+  <ion-card >
+    
+    <ion-card-title >  Unos novog restorana</ion-card-title>
     <form [formGroup]='restaurantForm' (ngSubmit)="create()" >
 <ion-item>
   <ion-grid>

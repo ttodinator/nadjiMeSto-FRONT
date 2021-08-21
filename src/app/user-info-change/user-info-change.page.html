@@ -79,7 +79,7 @@
     </ion-item>
     
     
-    <ion-button expand="block"  color="success" type="submit" >Zapamti izmene</ion-button>
+    <ion-button [disabled]='!userChangeForm.valid' expand="block"  color="success" type="submit" >Zapamti izmene</ion-button>
   
   </form> 
 </ion-card> 
