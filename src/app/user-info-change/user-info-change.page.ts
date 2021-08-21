@@ -27,7 +27,6 @@ export class UserInfoChangePage implements OnInit {
   initalizeForm(){
     this.userChangeForm=new FormGroup({
       username:new FormControl('',Validators.required),
-      password:new FormControl('',[Validators.required,Validators.minLength(6)]),
       userEmail: new FormControl('',[Validators.required]),
       name: new FormControl('',Validators.required),
       surname: new FormControl('',Validators.required),
@@ -43,13 +42,18 @@ export class UserInfoChangePage implements OnInit {
         username:this.user.username,
         cellphoneNumber:this.user.cellphoneNumber,
         userEmail:this.user.userEmail,
-        password:this.user.password,
       })
     })
 
   }
   userInfoUpdate(){
     console.log("button")
+  }
+
+  updateUser(){
+    this.userService.updateUser(this.userChangeForm.value).subscribe(()=>{
+      console.log(11111)
+    })
   }
 
 }

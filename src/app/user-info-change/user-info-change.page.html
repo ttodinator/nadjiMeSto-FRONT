@@ -15,7 +15,7 @@
         <ion-row>
           <ion-item>
             <ion-label position="stacked">Ime </ion-label>
-            <ion-input formControlName='name' value='John'></ion-input>
+            <ion-input formControlName='name' ></ion-input>
           </ion-item>
         </ion-row>
         
@@ -62,24 +62,15 @@
             </ion-row>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-label position="stacked">Lozinka</ion-label>
-              <ion-input formControlName='password'></ion-input>
-            </ion-item>
-            <ion-row>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('required') && userChangeForm.get('password').touched===true " >Morate da unesete password</div>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('minlength') && userChangeForm.get('password').touched===true " >Mora 6</div>
-            </ion-row>
-          </ion-col>
-          
-        </ion-row>
       </ion-grid>
     </ion-item>
     
     
+<<<<<<< HEAD
     <ion-button [disabled]='!userChangeForm.valid' expand="block"  color="success" type="submit" >Zapamti izmene</ion-button>
+=======
+    <ion-button expand="block"  (click)="updateUser()" color="success" type="submit" >Zapamti izmene</ion-button>
+>>>>>>> 7b775f1803df9a7bba38b74bfe533ed6126e90a1
   
   </form> 
 </ion-card> 
