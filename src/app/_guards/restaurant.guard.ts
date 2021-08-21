@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AccountService } from '../_services/account.service';
@@ -8,7 +9,7 @@ import { AccountService } from '../_services/account.service';
   providedIn: 'root'
 })
 export class RestaurantGuard implements CanActivate {
-  constructor(private accountService:AccountService) {
+  constructor(private toast:ToastController,private accountService:AccountService) {
   
   
   }
@@ -19,9 +20,18 @@ export class RestaurantGuard implements CanActivate {
           if(user.roles.includes('Restaurant') ){
             return true;
           }
-          console.log("You cannot enter this area");
+          this.toastActivation();
         })
       )
+    }
+    async toastActivation(){
+      const toastFalse= await this.toast.create({
+        message: "Pristup dozvoljen iskljucivo restoranima!",
+        duration: 5000,
+        color: "danger"
+    
+      });
+      toastFalse.present();
     }
   
 }
