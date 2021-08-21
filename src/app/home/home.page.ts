@@ -45,7 +45,7 @@ export class HomePage implements OnInit{
     });
     //console.log(this.loginForm.valid);
     this.accountService.login(this.loginForm.value).subscribe(response=>{
-      this.router.navigateByUrl('/restaurants');
+      //this.router.navigateByUrl('/restaurants');
     }, error=>{
       toastFalse.present();
     

@@ -37,6 +37,23 @@ export class LikedRestaurantsPage implements OnInit {
       });
     })
   }
+  doRefresh(event) {
+    this.restaurants.length=0;
+    this.restaurantService.getAllRestaurants().subscribe(response=>{
+      this.restaurantsInit=response;
+      this.restaurantsInit.forEach(element => {
+        for(let i=0;i<this.user.likes.length;i++){
+          if(element.restaurantId==this.user.likes[i]){
+            this.restaurants.push(element);
+          }
+        }
+      });
+    })
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
 
 
 

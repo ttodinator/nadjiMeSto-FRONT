@@ -29,4 +29,15 @@ export class ReservationsPage implements OnInit {
 
   }
 
+  doRefresh(event) {
+    this.restaurantService.getAllReservations().subscribe(res=>{
+      this.reservationsList=res;
+      console.log(this.reservationsList)
+    })
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
 }

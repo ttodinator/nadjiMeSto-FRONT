@@ -63,6 +63,15 @@ export class AccountService {
         const user=response;
         if(user){
           this.setCurrentUser(user);
+          if(user.roles.includes('Admin') ){
+            this.router.navigateByUrl('restaurants')
+          }
+          if(user.roles.includes('Restaurant') ){
+            this.router.navigateByUrl('restaurant-reservation-list')
+          }
+          if(user.roles.includes('AppUser') ){
+            this.router.navigateByUrl('restaurants')
+          }
         }
       }
       

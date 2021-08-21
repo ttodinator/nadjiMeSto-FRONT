@@ -30,6 +30,7 @@ export class ProfilePage implements OnInit {
 }
 
   ngOnInit() {
+
     this.accountService.updateProfilePhoto().subscribe(response=>{
     })
     // this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
@@ -74,6 +75,18 @@ async uploadImage(){
     toastFalse.present();
     this.accountService.setCurrentUser(this.user);
   })  
+}
+
+doRefresh(event) {
+  this.accountService.currentUser$.pipe(take(1)).subscribe(user=>{
+    this.user=user;
+    this.photo=user.profilePhotoUrl;
+  })
+
+  setTimeout(() => {
+
+    event.target.complete();
+  }, 2000);
 }
 
 }

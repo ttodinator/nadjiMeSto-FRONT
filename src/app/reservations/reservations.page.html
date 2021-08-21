@@ -5,10 +5,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
 
-  
-<div *ngFor="let res of reservationsList">
-  <app-reservation-card [reservation]="res" ></app-reservation-card>
-</div>
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let res of reservationsList">
+    <app-reservation-card [reservation]="res" ></app-reservation-card>
+  </div>
   
 </ion-content>
