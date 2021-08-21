@@ -8,6 +8,9 @@ import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateRestaurantPage implements OnInit {
 
+  min:number=0;
+  max:number=100;
+
   restaurantForm:FormGroup;
 
   constructor() { }

@@ -26,4 +26,9 @@ export class UserService {
     return this.http.get<User>(this.baseUrl+'user/get-user');
   }
 
+  updateUser(model:any){
+    return this.http.put<User>(this.baseUrl+'user/update',model);
+
+  }
+
 }

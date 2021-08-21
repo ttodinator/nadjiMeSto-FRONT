@@ -62,24 +62,11 @@
             </ion-row>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-label position="stacked">Lozinka</ion-label>
-              <ion-input formControlName='password'></ion-input>
-            </ion-item>
-            <ion-row>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('required') && userChangeForm.get('password').touched===true " >Morate da unesete password</div>
-              <div class="inputDiv" *ngIf="userChangeForm.get('password').hasError('minlength') && userChangeForm.get('password').touched===true " >Mora 6</div>
-            </ion-row>
-          </ion-col>
-          
-        </ion-row>
       </ion-grid>
     </ion-item>
     
     
-    <ion-button expand="block"  color="success" type="submit" >Zapamti izmene</ion-button>
+    <ion-button expand="block"  (click)="updateUser()" color="success" type="submit" >Zapamti izmene</ion-button>
   
   </form> 
 </ion-card> 
