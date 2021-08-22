@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
   selector: 'app-create-restaurant',
@@ -13,7 +14,7 @@ export class CreateRestaurantPage implements OnInit {
 
   restaurantForm:FormGroup;
 
-  constructor() { }
+  constructor(private restaurantService:RestaurantService) { }
 
   ngOnInit() {
     this.initalizeForm();
@@ -27,12 +28,21 @@ export class CreateRestaurantPage implements OnInit {
       name: new FormControl('',Validators.required),
       adress: new FormControl('',Validators.required),
       phoneNumber:new FormControl('',Validators.required),
+      seatingFor2:new FormControl('',),
+      seatingFor4:new FormControl('',),
+      seatingFor6:new FormControl('',),
+      seatingFor8:new FormControl('',),
+      seatingFor10:new FormControl('',),
+      seatingFor12:new FormControl('',),
      
     })
   }
 
   create(){
-    console.log("radimmmm")
+    console.log(this.restaurantForm.value);
+    this.restaurantService.createRestaurant(this.restaurantForm.value).subscribe(()=>{
+      console.log('Ok');
+    })
   }
 
 }

@@ -64,4 +64,8 @@ export class RestaurantService {
     return this.http.put<any>(this.baseUrl+'restaurant/'+asd,{});
   }
 
+  createRestaurant(model:any){
+    return this.http.post(this.baseUrl+'restaurant/create',model);
+  }
+
 }

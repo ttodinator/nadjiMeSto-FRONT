@@ -1,4 +1,5 @@
 import { RestaurantTable } from "./restaurantTable";
+import { User } from "./user";
 
 export interface Reservation{
     reservationId:number;
@@ -9,4 +10,5 @@ export interface Reservation{
     occupied:boolean;
     restaurantName:string;
     restaurantTable:RestaurantTable
+    appUser:User;
 }

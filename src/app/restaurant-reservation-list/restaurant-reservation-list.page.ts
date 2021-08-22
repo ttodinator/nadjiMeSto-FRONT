@@ -58,18 +58,23 @@ export class RestaurantReservationListPage implements OnInit {
       color: "warning"
     }) 
 
-  this.restaurantService.getDailyReservations(1,this.date).subscribe(response=>{
-    this.reservationsList=response;
-    console.log(this.reservationsList);
-    
-    if(this.reservationsList.length==0){
-      toastEmptyList.present();
-    }
-  
-  },error=>{
-    console.log("Doslo je do greske");
-    toastError.present();
-  })
+    this.restaurantService.getRestaurant(this.nesto).subscribe(response=>{
+      this.restaurant=response;
+      this.restaurantService.getDailyReservations(this.restaurant.restaurantId,this.date).subscribe(response=>{
+        this.reservationsList=response;
+        console.log(this.reservationsList);
+        
+        if(this.reservationsList.length==0){
+          toastEmptyList.present();
+        }
+      
+      },error=>{
+        console.log("Doslo je do greske");
+        toastError.present();
+      })
+    })
+
+
   
   this.clicked=true;
   }

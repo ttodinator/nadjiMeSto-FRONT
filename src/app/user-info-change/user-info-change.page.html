@@ -9,7 +9,7 @@
   
 <ion-card *ngIf="user">
   <ion-card-subtitle>Izmena licnih podataka</ion-card-subtitle>
-    <form [formGroup]='userChangeForm' (ngSubmit)="userInfoUpdate()" >
+    <form [formGroup]='userChangeForm' (ngSubmit)="updateUser()" >
     <ion-item>
       <ion-grid>
         <ion-row>
@@ -65,13 +65,9 @@
       </ion-grid>
     </ion-item>
     
-    
-<<<<<<< HEAD
+
     <ion-button [disabled]='!userChangeForm.valid' expand="block"  color="success" type="submit" >Zapamti izmene</ion-button>
-=======
-    <ion-button expand="block"  (click)="updateUser()" color="success" type="submit" >Zapamti izmene</ion-button>
->>>>>>> 7b775f1803df9a7bba38b74bfe533ed6126e90a1
-  
+
   </form> 
 </ion-card> 
 

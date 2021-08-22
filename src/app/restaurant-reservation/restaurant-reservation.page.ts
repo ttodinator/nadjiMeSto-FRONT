@@ -80,21 +80,33 @@ export class RestaurantReservationPage implements OnInit {
       color:"success"
 
     });
+    const toastNotValid=await this.toastController.create({
+      message: "Molimo vas unesite sve neophodne podatke",
+      duration: 5000,
+      color:"warning"
+
+    });
     const toastFalse=await this.toastController.create({
       message: "Za izabrane kriterijume nema slobodnih stolova",
       duration: 5000,
       color:"danger"
 
     });
-    console.log(this.model);
-    this.restaurantService.reserve(this.model).subscribe(res=>{
-      console.log(res);
-      
-        toastTrue.present();
-      
-    }, error=>{
-      toastFalse.present();
-    })
+
+    if(this.model.timeOfTheDay==null || this.model.seating==null || this.model.date==null){
+      toastNotValid.present();
+    }else{
+      this.restaurantService.reserve(this.model).subscribe(res=>{
+        console.log(res);
+        
+          toastTrue.present();
+        
+      }, error=>{
+        toastFalse.present();
+      })
+    }
+
+
   }
 
 }

@@ -52,7 +52,7 @@ export class UserInfoChangePage implements OnInit {
 
   updateUser(){
     this.userService.updateUser(this.userChangeForm.value).subscribe(()=>{
-      console.log(11111)
+      console.log('Ubaci toast')
     })
   }
 

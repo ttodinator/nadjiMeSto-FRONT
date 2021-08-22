@@ -13,5 +13,8 @@
       <ion-item>
         <ion-label>Broj osoba: {{reservation.restaurantTable.seating}}  Broj stola: {{reservation.restaurantTable.tableNumber}}</ion-label>
     </ion-item>
+    <ion-item *ngIf="reservation.appUser">
+      <ion-label>Rezervacija na ime: {{reservation?.appUser.name || reservation.restaurantName}} {{reservation?.appUser.surname}}</ion-label>
+    </ion-item>
     </ion-card-content>
   </ion-card>
