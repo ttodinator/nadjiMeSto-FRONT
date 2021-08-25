@@ -18,14 +18,15 @@ const routes: Routes = [
     
   },
   {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
     path: '',
     canActivate:[AuthenticationGuard],
     children:
     [
-      {
-        path: 'register',
-        loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-      },
+
       {
         path: 'restaurants',
         loadChildren: () => import('./restaurants/restaurants.module').then( m => m.RestaurantsPageModule)

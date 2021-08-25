@@ -6,4 +6,5 @@ export interface restaurant{
     adress:string,
     phoneNumber:string
     photos:Photo[];
+    description:string;
 }

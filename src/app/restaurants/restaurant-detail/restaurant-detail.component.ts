@@ -27,7 +27,7 @@ export class RestaurantDetailComponent implements OnInit {
   model:any;
   timeOfTheDay;
   seating;
-  date:Date=new Date();
+  date:Date;
   user:User;
   minDate: String = new Date().toISOString();
   maxDate: any = new Date(new Date().setDate(new Date().getDate() + 10)).toISOString();
@@ -87,23 +87,40 @@ export class RestaurantDetailComponent implements OnInit {
 
     const toastTrue=await this.toastController.create({
       message: "Vasa rezervacija je napravljena",
-      duration: 5000
+      duration: 5000,
+      color:"success"
+
+
+    });
+    const toastInvalid=await this.toastController.create({
+      message: "Molimo vas da unesete sva neophodna polja",
+      duration: 5000,
+      color:"warning"
+
 
     });
     const toastFalse=await this.toastController.create({
       message: "Za izabrane kriterijume nema slobodnih stolova",
-      duration: 5000
-
+      duration: 5000,
+      color:"danger"
     });
-    console.log(this.model);
-    this.restaurantService.reserve(this.model).subscribe(res=>{
-      console.log(res);
-      
-        toastTrue.present();
-      
-    }, error=>{
-      toastFalse.present();
-    })
+    
+    console.log(this.model.date);
+
+    if(this.model.date==null || this.model.seating==null || this.model.timeOfTheDay==null){
+      toastInvalid.present();
+    }
+    else{
+      this.restaurantService.reserve(this.model).subscribe(res=>{
+        console.log(res);
+        
+          toastTrue.present();
+        
+      }, error=>{
+        toastFalse.present();
+      })
+    }
+    
     
     
 

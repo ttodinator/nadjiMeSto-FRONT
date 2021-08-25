@@ -25,7 +25,7 @@
         </ion-item>
       </ion-row>
         <ion-row>
-          <div class="inputDiv" *ngIf="restaurantForm.get('adress').hasError('required') && restaurantForm.get('adress').touched===true " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('adress').hasError('required') && restaurantForm.get('adress').touched===true " >Morate da unesete adresu</div>
         </ion-row>
    
       <ion-row>
@@ -35,7 +35,7 @@
         </ion-item>
 
         <ion-row>
-          <div class="inputDiv" *ngIf="restaurantForm.get('phoneNumber').hasError('required') && restaurantForm.get('phoneNumber').touched===true" >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('phoneNumber').hasError('required') && restaurantForm.get('phoneNumber').touched===true" >Morate da unesete tekefon</div>
         </ion-row>
       
     </ion-row>
@@ -43,10 +43,10 @@
       
         <ion-item>
           <ion-label position="floating">Lozinka</ion-label>
-          <ion-input formControlName='password'></ion-input>
+          <ion-input type="password" formControlName='password'></ion-input>
         </ion-item>
         <ion-row>
-          <div class="inputDiv" *ngIf="restaurantForm.get('password').hasError('required') && restaurantForm.get('password').touched===true " >Morate da unesete ime</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('password').hasError('required') && restaurantForm.get('password').touched===true " >Morate da unesete lozinku</div>
           <div class="inputDiv" *ngIf="restaurantForm.get('password').hasError('minlength') && restaurantForm.get('password').touched===true " >Mora 6</div>
         </ion-row>
      
@@ -61,6 +61,12 @@
           </ion-label>
           <ion-input formControlName='seatingFor2' type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor2').hasError('required') && restaurantForm.get('seatingFor2').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor2').hasError('min') && restaurantForm.get('seatingFor2').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor2').hasError('max') && restaurantForm.get('seatingFor2').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
       <ion-col>
         <ion-item>
@@ -71,6 +77,12 @@
           
           <ion-input formControlName='seatingFor4' type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor4').hasError('required') && restaurantForm.get('seatingFor4').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor4').hasError('min') && restaurantForm.get('seatingFor4').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor4').hasError('max') && restaurantForm.get('seatingFor4').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -82,6 +94,12 @@
           </ion-label>
           <ion-input formControlName='seatingFor6' type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor6').hasError('required') && restaurantForm.get('seatingFor6').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor6').hasError('min') && restaurantForm.get('seatingFor6').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor6').hasError('max') && restaurantForm.get('seatingFor6').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
       <ion-col>
         <ion-item>
@@ -91,6 +109,12 @@
           </ion-label>
           <ion-input formControlName='seatingFor8' type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor8').hasError('required') && restaurantForm.get('seatingFor8').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor8').hasError('min') && restaurantForm.get('seatingFor8').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor8').hasError('max') && restaurantForm.get('seatingFor8').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -102,6 +126,12 @@
           </ion-label>
           <ion-input formControlName='seatingFor10'type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor10').hasError('required') && restaurantForm.get('seatingFor10').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor10').hasError('min') && restaurantForm.get('seatingFor10').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor10').hasError('max') && restaurantForm.get('seatingFor10').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
       <ion-col>
         <ion-item>
@@ -111,7 +141,20 @@
           </ion-label>
           <ion-input formControlName='seatingFor12' type="number"></ion-input>
         </ion-item>
+        <ion-row>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor12').hasError('required') && restaurantForm.get('seatingFor12').touched===true " >Obevezno</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor12').hasError('min') && restaurantForm.get('seatingFor12').touched===true " >Minimalno je 0</div>
+          <div class="inputDiv" *ngIf="restaurantForm.get('seatingFor12').hasError('max') && restaurantForm.get('seatingFor12').touched===true " >Maksimalno je 20</div>
+
+        </ion-row>
       </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label position="floating">Opis</ion-label>
+        <ion-input formControlName='description' type="textarea"></ion-input>
+      </ion-item>
+
     </ion-row>
   </ion-grid>
 
@@ -122,16 +165,31 @@
 
     </form>
   </ion-card>
-  <ion-item>
+  <ion-item class="hid">
+    <ion-label >aaaa</ion-label>
+  </ion-item>
+  <ion-item class="hid">
     <ion-label>aaaa</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item class="hid">
+    <ion-label>aaaa</ion-label>
+  </ion-item >
+  <ion-item class="hid">
     <ion-label>aaaa</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item class="hid">
     <ion-label>aaaa</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item class="hid">
+    <ion-label>aaaa</ion-label>
+  </ion-item>
+  <ion-item class="hid">
+    <ion-label>aaaa</ion-label>
+  </ion-item>
+  <ion-item class="hid">
+    <ion-label>aaaa</ion-label>
+  </ion-item>
+  <ion-item class="hid">
     <ion-label>aaaa</ion-label>
   </ion-item>
 

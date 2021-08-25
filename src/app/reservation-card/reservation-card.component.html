@@ -1,20 +1,20 @@
-<ion-card>
-    <ion-card-subtitle>Rezervacija broj {{reservation.reservationId }}</ion-card-subtitle>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>{{reservation.restaurantName}}</ion-label>
+<ion-card color="medium">
+    <ion-card-subtitle color="dark">Rezervacija broj {{reservation.reservationId }}</ion-card-subtitle>
+    <ion-item color="medium">
+      <ion-icon color="dark" name="pin" slot="start"></ion-icon>
+      <ion-label color="dark">{{reservation.restaurantName}}</ion-label>
       
     </ion-item>
   
     <ion-card-content>
-      <ion-item>
-          <ion-label>Datum: {{reservation.date | date:'dd/MM/yyyy'}}</ion-label>
+      <ion-item color="medium">
+          <ion-label color="dark">Datum: {{reservation.date | date:'dd/MM/yyyy'}}</ion-label>
       </ion-item>
-      <ion-item>
-        <ion-label>Broj osoba: {{reservation.restaurantTable.seating}}  Broj stola: {{reservation.restaurantTable.tableNumber}}</ion-label>
+      <ion-item color="medium">
+        <ion-label color="dark">Broj osoba: {{reservation.restaurantTable.seating}}  Broj stola: {{reservation.restaurantTable.tableNumber}}</ion-label>
     </ion-item>
-    <ion-item *ngIf="reservation.appUser">
-      <ion-label>Rezervacija na ime: {{reservation?.appUser.name || reservation.restaurantName}} {{reservation?.appUser.surname}}</ion-label>
-    </ion-item>
+    <ion-item *ngIf="reservation.appUser" color="medium">
+      <ion-label color="dark">Rezervacija na ime: {{reservation?.appUser.name || reservation.restaurantName}} {{reservation?.appUser.surname}}</ion-label>
+    </ion-item >
     </ion-card-content>
   </ion-card>

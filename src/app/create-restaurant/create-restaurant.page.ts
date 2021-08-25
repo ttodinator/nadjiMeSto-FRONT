@@ -28,12 +28,13 @@ export class CreateRestaurantPage implements OnInit {
       name: new FormControl('',Validators.required),
       adress: new FormControl('',Validators.required),
       phoneNumber:new FormControl('',Validators.required),
-      seatingFor2:new FormControl('',),
-      seatingFor4:new FormControl('',),
-      seatingFor6:new FormControl('',),
-      seatingFor8:new FormControl('',),
-      seatingFor10:new FormControl('',),
-      seatingFor12:new FormControl('',),
+      seatingFor2:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      seatingFor4:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      seatingFor6:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      seatingFor8:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      seatingFor10:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      seatingFor12:new FormControl('',[Validators.required,Validators.min(0),Validators.max(20)]),
+      description:new FormControl('',Validators.required)
      
     })
   }

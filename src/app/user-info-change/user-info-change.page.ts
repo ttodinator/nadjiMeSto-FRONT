@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
@@ -14,8 +15,9 @@ export class UserInfoChangePage implements OnInit {
 
   userChangeForm:FormGroup;
   user:User;
+  
 
-  constructor(private accountService:AccountService,private userService:UserService) {
+  constructor(private toastController:ToastController, private accountService:AccountService,private userService:UserService) {
 
    }
 
@@ -25,6 +27,9 @@ export class UserInfoChangePage implements OnInit {
     
   }
   initalizeForm(){
+
+    
+
     this.userChangeForm=new FormGroup({
       username:new FormControl('',Validators.required),
       userEmail: new FormControl('',[Validators.required]),
@@ -50,9 +55,26 @@ export class UserInfoChangePage implements OnInit {
     console.log("button")
   }
 
-  updateUser(){
+  async updateUser(){
+    const toastTrue=await this.toastController.create({
+      message: "Profil je uspesno izmenjen",
+      duration: 5000,
+      color:"success"
+
+
+    });
+
+    const toastFalse=await this.toastController.create({
+      message: "Greska prilikom izmene profila",
+      duration: 5000,
+      color:"danger"
+    });
+
+
     this.userService.updateUser(this.userChangeForm.value).subscribe(()=>{
-      console.log('Ubaci toast')
+      toastTrue.present();
+    },error=>{
+      toastFalse.present();
     })
   }
 

@@ -1,10 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>liked-restaurants</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref='restaurants'>
+
+      </ion-back-button>
+    <ion-title>Sacuvani restorani</ion-title>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="restaurants.length<1">
+    <p>Nema sacuvanih restorana</p>
+  </div>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>

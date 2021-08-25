@@ -60,7 +60,7 @@
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Lozinka</ion-label>
-          <ion-input formControlName='password'></ion-input>
+          <ion-input type="password" formControlName='password'></ion-input>
         </ion-item>
         <ion-row>
           <div class="inputDiv" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched===true " >Morate da unesete ime</div>
