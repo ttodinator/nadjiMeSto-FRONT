@@ -65,7 +65,7 @@ export class RestaurantCardComponent implements OnInit {
 
   async addLike(restaurant1:restaurant){
     const toastFalse= await this.toast.create({
-      message: "Restoran dodat u lajkovane restorane",
+      message: "Restoran dodat u omiljene restorane",
       duration: 5000,
       color: "success"
   
