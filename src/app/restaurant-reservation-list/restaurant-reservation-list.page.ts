@@ -60,7 +60,10 @@ export class RestaurantReservationListPage implements OnInit {
 
     this.restaurantService.getRestaurant(this.nesto).subscribe(response=>{
       this.restaurant=response;
-      this.restaurantService.getDailyReservations(this.restaurant.restaurantId,this.date).subscribe(response=>{
+      var date1=this.date.toString();
+      console.log(date1);
+      console.log(date1.substr(0,10));
+      this.restaurantService.getDailyReservations(this.restaurant.restaurantId,date1.substr(0,10)).subscribe(response=>{
         this.reservationsList=response;
         console.log(this.reservationsList);
         

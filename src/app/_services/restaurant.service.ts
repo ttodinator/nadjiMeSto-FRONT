@@ -50,8 +50,8 @@ export class RestaurantService {
       return  this.http.get<Reservation[]>(this.baseUrl+'reservation')
      
   }
-  getDailyReservations(id: number,date: Date){
-    return this.http.get<Reservation[]>(this.baseUrl+'reservation/daily?restaurantId='+id.toString()+'&date='+date.toString())
+  getDailyReservations(id: number,date: string){
+    return this.http.get<Reservation[]>(this.baseUrl+'reservation/daily?restaurantId='+id.toString()+'&date='+date)
   }
 
   uploadPhoto(file:File){
