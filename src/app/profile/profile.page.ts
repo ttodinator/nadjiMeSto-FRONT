@@ -39,9 +39,16 @@ export class ProfilePage implements OnInit {
     // console.log(this.user.profilePhotoUrl)
 
   }
-  logout(){    
+  async logout(){    
 
     this.accountService.logout();
+    const toastFalse= await this.toast.create({
+      message: "Izlogovali ste se, dovidjenja!",
+      duration: 5000,
+      color: "success"
+  
+    });
+    toastFalse.present();
     this.router.navigateByUrl('');
   }
 

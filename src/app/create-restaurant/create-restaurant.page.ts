@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CreateRestaurantPage implements OnInit {
 
   restaurantForm:FormGroup;
 
-  constructor(private restaurantService:RestaurantService) { }
+  constructor(private toast:ToastController,private restaurantService:RestaurantService) { }
 
   ngOnInit() {
     this.initalizeForm();
@@ -39,11 +40,27 @@ export class CreateRestaurantPage implements OnInit {
     })
   }
 
-  create(){
+  async create(){
+    const toastFalse= await this.toast.create({
+      message: "Neuspesno kreiranje, proverite podatke",
+      duration: 3000,
+      color: "danger"
+  
+    });
+    const toastTrue= await this.toast.create({
+      message: "Restoran kreiran!",
+      duration: 3000,
+      color: "success"
+  
+    });
     console.log(this.restaurantForm.value);
     this.restaurantService.createRestaurant(this.restaurantForm.value).subscribe(()=>{
+      toastTrue.present();
       console.log('Ok');
+    },error=>{
+      toastFalse.present()
     })
+    
   }
 
 }

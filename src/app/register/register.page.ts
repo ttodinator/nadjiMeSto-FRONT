@@ -25,12 +25,19 @@ export class RegisterPage implements OnInit {
   async register(){
     const toastFalse= await this.toast.create({
       message: "Neuspesno registrovanje",
-      duration: 5000,
+      duration: 3000,
       color: "danger"
+  
+    });
+    const toastTrue= await this.toast.create({
+      message: "Uspešno registrovanje",
+      duration: 8000,
+      color: "success"
   
     });
   this.accountService.register(this.registerForm.value).subscribe(response=>{
     console.log(response);
+    toastTrue.present();
     this.router.navigateByUrl('/restaurants');
 
 

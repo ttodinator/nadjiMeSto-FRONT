@@ -51,7 +51,13 @@ export class RestaurantCardComponent implements OnInit {
     }
   }
 
-  deleteLike(restaurant:restaurant){
+  async deleteLike(restaurant:restaurant){
+    const toastFalse= await this.toast.create({
+      message: "Restoran uklonjen iz omiljenih restorana",
+      duration: 3000,
+      color: "success"
+  
+    });
 
 
     this.restaurantService.unlikeRestaurant(restaurant.restaurantId).subscribe(()=>{
@@ -59,6 +65,7 @@ export class RestaurantCardComponent implements OnInit {
       if(index>-1){
         this.user.likes.splice(index,1);
         this.accountService.updateUser(this.user);
+        toastFalse.present();
       }
     })
   }

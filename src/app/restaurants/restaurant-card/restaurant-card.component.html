@@ -5,7 +5,7 @@
     <ion-card-title>{{restaurant.name}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    Abligacyyyyja nam kidyyyyy
+    {{restaurant.description}}
   </ion-card-content>
   <ion-icon name="heart" *ngIf="isLiked==true" (click)="likeRestaurant()"></ion-icon>
   <ion-icon name="heart-outline" *ngIf="isLiked==false" (click)="likeRestaurant()" ></ion-icon>
